@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Log in — Quotelund (concept)</title>
+<meta name="description" content="Concept log-in screen for Quotelund, designed by McJames Studio.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#3f6b4f">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Inter+Tight:wght@500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#f7f6f2}
+a{color:#3f6b4f}a:hover{color:#325641}
+:focus-visible{outline:2px solid #3f6b4f;outline-offset:2px}
+.li{container-type:inline-size;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;color:#16181d;background:#f7f6f2;-webkit-font-smoothing:antialiased}
+.disp{font-family:"Inter Tight",Inter,system-ui,sans-serif;font-weight:600;letter-spacing:-0.03em}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label,.flabel{font-size:14px;font-weight:500;line-height:20px;color:#16181d}
+.inp{height:44px;padding:0 12px;border:1px solid #8a877f;border-radius:8px;background:#ffffff;color:#16181d;font:400 15px Inter,system-ui,sans-serif;box-sizing:border-box;width:100%}
+.inp::placeholder{color:#5c5f66}
+.inp:focus{outline:2px solid #3f6b4f;outline-offset:1px;border-color:#3f6b4f}
+.inp-err{border-color:#b3261e}
+.err{font-size:13px;line-height:20px;color:#b3261e}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 20px;border-radius:8px;font:500 16px/1 Inter,system-ui,sans-serif;text-decoration:none;box-sizing:border-box;border:1px solid transparent;cursor:pointer;transition:background-color .15s ease,transform .15s ease}
+.btn:active{transform:translateY(1px)}
+.btn-p{background:#3f6b4f;color:#ffffff;box-shadow:0 1px 2px rgba(22,24,29,0.06)}
+.btn-p:hover{background:#325641;color:#ffffff}
+.btn-s{background:#ffffff;color:#16181d;border-color:#8a877f}
+.btn-s:hover{background:#efede7;color:#16181d}
+.linkbtn{background:none;border:0;padding:0;font:500 14px Inter,system-ui,sans-serif;color:#3f6b4f;text-decoration:underline;cursor:pointer}
+.linkbtn:hover{color:#325641}
+.pwwrap{position:relative}
+.pwwrap .inp{padding-right:72px}
+.pwtoggle{position:absolute;right:4px;top:4px;height:36px;min-width:60px;border:0;border-radius:6px;background:transparent;color:#3f6b4f;font:500 13px Inter,system-ui,sans-serif;cursor:pointer}
+.pwtoggle:hover{background:#efede7}
+@keyframes li-rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.rise{animation:li-rise .5s cubic-bezier(.2,.7,.2,1) both}
+@media (prefers-reduced-motion: reduce){.rise{animation:none !important}.btn,.btn:active{transition:none !important;transform:none !important}}
+@container (max-width: 600px){
+.top{padding:24px 16px 0 !important}
+.card{padding:28px 20px !important}
+}
+</style>
+<style>
+html{scroll-behavior:smooth}
+section[id]{scroll-margin-top:76px}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<noscript><p style="font-family:system-ui,sans-serif;padding:24px">This concept site needs JavaScript to run.</p></noscript>
+<script type="text/x-template" id="tpl">
+<div class="li" style="width: 100%; min-height: 100vh; display: flex; flex-direction: column">
+
+<div class="top" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding: 32px 64px 0">
+<a href="index.html" aria-label="Back to the Quotelund home page" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #16181d">
+<svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#3f6b4f"></rect><path d="M10.5 7h8.2l4.8 4.8v12.2a1 1 0 0 1-1 1h-12a1 1 0 0 1-1-1v-16a1 1 0 0 1 1-1z" fill="#ffffff"></path><path d="M18.7 7v4.8h4.8" fill="none" stroke="#3f6b4f" stroke-width="1.4" stroke-linejoin="round"></path><path d="M12.6 18.4l2.6 2.6 4.9-5.4" fill="none" stroke="#3f6b4f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<span class="disp" style="font-size: 19px">Quotelund</span>
+</a>
+<span style="font-size: 14px; color: #5c5f66">New to Quotelund? <a href="signup.html">Start free trial</a></span>
+</div>
+
+<main style="flex-grow: 1; display: flex; align-items: center; justify-content: center; padding: 48px 16px 80px">
+<div class="card rise" style="width: 100%; max-width: 440px; box-sizing: border-box; background: #ffffff; border: 1px solid #e4e2dc; border-radius: 14px; padding: 40px; box-shadow: 0 12px 32px rgba(22,24,29,0.08)">
+
+<sc-if value="{{showLogin}}" hint-placeholder-val="{{true}}">
+<div style="display: flex; flex-direction: column; gap: 20px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<h1 class="disp" style="margin: 0; font-size: 32px; line-height: 36px">Log in to Quotelund</h1>
+<p style="margin: 0; font-size: 15px; line-height: 23px; color: #5c5f66">Welcome back. Pick up where your proposals left off.</p>
+</div>
+<div class="field"><label for="li-email">Work email</label><input id="li-email" class="{{emailClass}}" type="email" autocomplete="email" placeholder="anna@nordlys.dk" value="{{email}}" onChange="{{onEmail}}" aria-invalid="{{emailBad}}"><sc-if value="{{emailBad}}" hint-placeholder-val="{{false}}"><span class="err">Enter the email you signed up with.</span></sc-if></div>
+<div class="field">
+<div style="display: flex; justify-content: space-between; align-items: baseline"><label for="li-pw">Password</label><button type="button" class="linkbtn" onClick="{{goForgot}}">Forgot password?</button></div>
+<div class="pwwrap"><input id="li-pw" class="{{pwClass}}" type="{{pwType}}" autocomplete="current-password" placeholder="Your password" value="{{pw}}" onChange="{{onPw}}" aria-invalid="{{pwBad}}"><button type="button" class="pwtoggle" aria-pressed="{{pwShown}}" onClick="{{togglePw}}">{{pwToggleLabel}}</button></div>
+<sc-if value="{{pwBad}}" hint-placeholder-val="{{false}}"><span class="err">Enter your password.</span></sc-if>
+</div>
+<button type="button" class="btn btn-p" onClick="{{submit}}" style="width: 100%">Log in</button>
+</div>
+</sc-if>
+
+<sc-if value="{{showForgot}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; flex-direction: column; gap: 20px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<h1 class="disp" style="margin: 0; font-size: 32px; line-height: 36px">Reset your password</h1>
+<p style="margin: 0; font-size: 15px; line-height: 23px; color: #5c5f66">Enter your work email and we'll send you a link to choose a new password.</p>
+</div>
+<div class="field"><label for="li-reset">Work email</label><input id="li-reset" class="{{emailClass}}" type="email" autocomplete="email" placeholder="anna@nordlys.dk" value="{{email}}" onChange="{{onEmail}}" aria-invalid="{{emailBad}}"><sc-if value="{{emailBad}}" hint-placeholder-val="{{false}}"><span class="err">Enter a valid email address.</span></sc-if></div>
+<button type="button" class="btn btn-p" onClick="{{sendReset}}" style="width: 100%">Send reset link</button>
+<button type="button" class="linkbtn" onClick="{{goLogin}}" style="align-self: center">Back to log in</button>
+</div>
+</sc-if>
+
+<sc-if value="{{showSent}}" hint-placeholder-val="{{false}}">
+<div role="status" style="display: flex; flex-direction: column; align-items: flex-start; gap: 16px">
+<span style="width: 52px; height: 52px; border-radius: 999px; background: #e3ece5; display: flex; align-items: center; justify-content: center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#325641" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16v12H4z"></path><path d="m4 7 8 6 8-6"></path></svg></span>
+<h1 class="disp" style="margin: 0; font-size: 32px; line-height: 36px">Check your inbox</h1>
+<p style="margin: 0; font-size: 15px; line-height: 23px; color: #5c5f66">If an account exists for that email, a reset link is on its way. It expires in 30 minutes.</p>
+<button type="button" class="btn btn-s" onClick="{{goLogin}}">Back to log in</button>
+</div>
+</sc-if>
+
+<sc-if value="{{showDone}}" hint-placeholder-val="{{false}}">
+<div role="status" style="display: flex; flex-direction: column; align-items: flex-start; gap: 16px">
+<span style="width: 52px; height: 52px; border-radius: 999px; background: #e3ece5; display: flex; align-items: center; justify-content: center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#325641" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span>
+<h1 class="disp" style="margin: 0; font-size: 32px; line-height: 36px">You're logged in</h1>
+<p style="margin: 0; font-size: 15px; line-height: 23px; color: #5c5f66">In the live product, this opens your proposals dashboard. This concept ends here.</p>
+<a class="btn btn-s" href="index.html">Back to the home page</a>
+</div>
+</sc-if>
+
+</div>
+</main>
+
+<p style="margin: 0; padding: 0 16px 24px; text-align: center; font-size: 13px; color: #5c5f66">Concept design by McJames Studio. Quotelund is a fictional product.</p>
+</div>
+</script>
+<script src="runtime.js"></script>
+<script>
+class Component extends DCLogic {
+  renderVals() {
+    const s = this.state || {};
+    const view = s.view || 'login';
+    const email = s.email || '';
+    const pw = s.pw || '';
+    const tried = !!s.tried;
+    const shown = !!s.shown;
+    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+    const emailBad = tried && !emailRe.test(email.trim());
+    const pwBad = tried && view === 'login' && pw === '';
+    return {
+      showLogin: view === 'login',
+      showForgot: view === 'forgot',
+      showSent: view === 'sent',
+      showDone: view === 'done',
+      email: email, pw: pw,
+      emailBad: emailBad, pwBad: pwBad,
+      emailClass: 'inp' + (emailBad ? ' inp-err' : ''),
+      pwClass: 'inp' + (pwBad ? ' inp-err' : ''),
+      pwType: shown ? 'text' : 'password',
+      pwShown: shown,
+      pwToggleLabel: shown ? 'Hide' : 'Show',
+      togglePw: () => this.setState({ shown: !shown }),
+      onEmail: (e) => this.setState({ email: e.target.value }),
+      onPw: (e) => this.setState({ pw: e.target.value }),
+      goForgot: () => this.setState({ view: 'forgot', tried: false }),
+      goLogin: () => this.setState({ view: 'login', tried: false }),
+      submit: () => {
+        const ok = emailRe.test(email.trim()) && pw !== '';
+        this.setState(ok ? { view: 'done', tried: false } : { tried: true });
+      },
+      sendReset: () => {
+        const ok = emailRe.test(email.trim());
+        this.setState(ok ? { view: 'sent', tried: false } : { tried: true });
+      }
+    };
+  }
+}
+window.DCRuntime.mount(Component);
+</script>
+</body>
+</html>
