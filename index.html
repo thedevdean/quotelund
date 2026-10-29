@@ -1085,7 +1085,10 @@ window.DCRuntime.mount(Component);
   var LOOP = 21000;
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var feedItems = [].slice.call(card.querySelectorAll('.trk-ev'));
-  var elapsed = 0, last = 0, started = false, visible = false, announce = false, lastTrk = 0, lastNudge = 0;
+  // Until the card is fully in view it shows the final state; playing starts with a 400ms
+  // fade-out of that state (elapsed -400..0) before the loop's own fade-in at 0.
+  var PRE = -400;
+  var elapsed = PRE, last = 0, started = false, visible = false, announce = false, lastTrk = 0, lastNudge = 0;
 
   var live = document.createElement('div');
   live.className = 'sr';
@@ -1123,6 +1126,7 @@ window.DCRuntime.mount(Component);
     card.querySelectorAll('.trk-time').forEach(function (el) { setText(el, clock(s.read)); });
     var amt = card.querySelector('.trk-amount');
     if (amt) setText(amt, '€' + Math.round(7360 * s.amount).toLocaleString('en-US'));
+    if (s.pre) { lastTrk = 0; lastNudge = 0; return; }
     if (announce && (s.trk > lastTrk || s.nudge > lastNudge)) {
       var text = s.nudge > lastNudge ? card.querySelector('.trk-nudge p').textContent : feedItems[s.trk - 1].textContent;
       live.textContent = text.replace(/\s+/g, ' ').trim();
@@ -1133,12 +1137,18 @@ window.DCRuntime.mount(Component);
   function playing() { return started && visible && !reduce; }
   function tick() {
     var now = performance.now();
-    if (playing()) { elapsed = (elapsed + (now - last)) % LOOP; }
+    if (playing()) { elapsed += now - last; if (elapsed >= LOOP) elapsed -= LOOP; }
     last = now;
-    render(reduce ? FINAL : stateAt(elapsed));
+    render(current());
   }
 
-  render(reduce ? FINAL : stateAt(0));
+  function current() {
+    if (reduce || !started) return FINAL;
+    if (elapsed < 0) return { trk: 7, pill: 'signed', sec: 6, fwd: 1, nudge: 0, signed: 1, fade: 1, read: 0, amount: 1, pre: true };
+    return stateAt(elapsed);
+  }
+
+  render(current());
   if (reduce) { root.setAttribute('data-trk-static', '1'); return; }
   last = performance.now();
   setInterval(tick, 100);
@@ -1157,7 +1167,7 @@ window.DCRuntime.mount(Component);
 
   card.querySelector('.trk-replay').addEventListener('click', function () {
     announce = true;
-    elapsed = 0; lastTrk = 0; lastNudge = 0;
+    elapsed = PRE; lastTrk = 0; lastNudge = 0;
     started = true;
   });
 })();
