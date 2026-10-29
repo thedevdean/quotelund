@@ -42,14 +42,14 @@ span.btn{cursor:default}
 .seg-on{background:#ffffff;color:var(--ink);box-shadow:0 1px 2px rgba(22,24,29,0.08)}
 .seg-off{background:transparent;color:#5c5f66}
 .seg-off:hover{color:var(--ink)}
-.pkg{display:block;width:100%;text-align:left;border-radius:8px;cursor:pointer;font-family:inherit;transition:border-color .15s ease,background-color .15s ease}
-.pkg-on{border:2px solid #3f6b4f;background:#e3ece5;color:#325641;padding:10px 11px}
-.pkg-off{border:1px solid #8a877f;background:#ffffff;color:#5c5f66;padding:11px 12px}
-.pkg-off:hover{background:var(--paper)}
+.pkg{display:block;width:100%;text-align:left;border-radius:12px;cursor:pointer;font-family:inherit;transition:border-color .2s var(--ease),background-color .2s var(--ease)}
+.pkg-on{border:2px solid var(--accent);background:color-mix(in srgb,var(--accent-soft) 30%,#ffffff);color:var(--ink);padding:10px 11px}
+.pkg-off{border:1px solid var(--line);background:#ffffff;color:var(--ink-soft);padding:11px 12px}
+.pkg-off:hover{border-color:var(--ink-soft)}
 .opt{display:flex;align-items:center;gap:10px;width:100%;min-height:36px;padding:0;border:0;background:transparent;font:400 14px var(--font-sans);color:var(--ink);cursor:pointer;text-align:left;font-variant-numeric:tabular-nums}
-.chk{width:18px;height:18px;border-radius:4px;display:flex;align-items:center;justify-content:center;box-sizing:border-box;flex-shrink:0;transition:background-color .15s ease}
-.chk-on{background:#3f6b4f}
-.chk-off{border:1px solid #8a877f;background:#ffffff}
+.chk{width:18px;height:18px;border-radius:4px;display:flex;align-items:center;justify-content:center;box-sizing:border-box;flex-shrink:0;transition:background-color .2s var(--ease)}
+.chk-on{background:var(--accent)}
+.chk-off{border:1px solid var(--ink-soft);background:#ffffff}
 .chk-off svg{display:none}
 .sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 .plan{position:relative;border-radius:14px;display:flex;flex-direction:column;gap:20px;cursor:pointer;box-sizing:border-box;transition:border-color .2s ease,background-color .2s ease,box-shadow .2s ease,transform .2s ease}
@@ -88,7 +88,6 @@ details summary::-webkit-details-marker{display:none}
 .wrap{padding:0 16px !important}
 .sec{padding-top:64px !important;padding-bottom:64px !important}
 .cta-panel{padding:40px 24px !important}
-.demo{padding:16px !important}
 .dialog{padding:24px 20px}
 }
 /* Nav: floating pill bar */
@@ -126,8 +125,9 @@ details summary::-webkit-details-marker{display:none}
 .hero-small{margin:24px 0 0;font-size:13px;line-height:20px;color:var(--ink-soft)}
 
 /* Hero visual: warm gradient panel with grain */
-.hero-visual{position:relative;margin:0;min-height:540px;border-radius:var(--radius-card);overflow:hidden;isolation:isolate;background:radial-gradient(120% 95% at 22% 18%,var(--accent-soft) 0%,#D9A88F 38%,#A98069 72%,#8A6654 100%)}
-.hero-visual::after{content:"";position:absolute;inset:0;z-index:-1;opacity:0.11;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.grainy{position:relative;border-radius:var(--radius-card);overflow:hidden;isolation:isolate;background:radial-gradient(120% 95% at 22% 18%,var(--accent-soft) 0%,#D9A88F 38%,#A98069 72%,#8A6654 100%)}
+.hero-visual{margin:0;min-height:540px}
+.grainy::after{content:"";position:absolute;inset:0;z-index:-1;opacity:0.11;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 
 /* Proposal card */
 .pcard{position:absolute;top:28px;left:32px;width:calc(100% - 64px);max-width:440px;background:#ffffff;border-radius:16px;box-shadow:0 1px 2px rgba(20,19,17,0.06),0 30px 60px -20px rgba(70,40,25,0.35);overflow:hidden;text-align:left}
@@ -179,6 +179,110 @@ details summary::-webkit-details-marker{display:none}
 
 /* Fade up on scroll entry; the class is only added by script when motion is allowed */
 .js-fade .fade-up{opacity:0}
+
+/* Section 5: how it works */
+.how{background:var(--paper);padding:160px 0}
+.how-eyebrow{margin:0 0 48px;font-family:var(--font-sans);font-size:12px;font-weight:600;line-height:16px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-soft)}
+.how-grid{display:grid;grid-template-columns:55% 40%;justify-content:space-between;align-items:start}
+.how-stage{position:sticky;top:max(96px,calc(50vh - 280px));height:560px;display:grid;place-items:center;padding:48px;box-sizing:border-box}
+.how-vis{grid-area:1/1;width:100%;display:flex;justify-content:center;opacity:0;visibility:hidden;transition:opacity 240ms var(--ease),visibility 0s linear 240ms}
+:root:not([data-how-step="2"]):not([data-how-step="3"]) .how-stage .how-vis-1,
+:root[data-how-step="2"] .how-stage .how-vis-2,
+:root[data-how-step="3"] .how-stage .how-vis-3{opacity:1;visibility:visible;transition:opacity 240ms var(--ease),visibility 0s}
+.how-steps{position:relative;margin:0;padding:0 0 0 40px;list-style:none}
+.how-progress{position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--line);border-radius:2px;overflow:hidden}
+.how-progress span{display:block;height:100%;background:var(--ink);transform-origin:top;transform:scaleY(var(--how-progress,0))}
+.how-step{min-height:70vh;display:flex;flex-direction:column;justify-content:center;gap:16px;opacity:.35;transition:opacity 240ms var(--ease)}
+:root:not([data-how-step]) .how-step,
+:root[data-how-step="1"] .how-step-1,
+:root[data-how-step="2"] .how-step-2,
+:root[data-how-step="3"] .how-step-3{opacity:1}
+.how-num{font-family:var(--font-mono);font-size:14px;line-height:20px;color:var(--ink-soft)}
+.how-title{margin:0;font-family:var(--font-display);font-size:40px;font-weight:400;line-height:1.1;letter-spacing:-0.01em;color:var(--ink)}
+.how-body{margin:0;max-width:440px;font-size:18px;line-height:1.6;color:var(--ink-soft)}
+.how-step-vis{display:none}
+
+/* Visual cards shared by the panel and the mobile steps */
+.vcard{width:100%;max-width:400px;background:#ffffff;border-radius:16px;box-shadow:0 1px 2px rgba(20,19,17,0.06),0 30px 60px -20px rgba(70,40,25,0.35);overflow:hidden;text-align:left}
+.vcard-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;height:44px;padding:0 16px;border-bottom:1px solid var(--line);font-size:12px;color:var(--ink-soft);white-space:nowrap}
+.vcard-body{padding:20px 24px 24px}
+
+/* Step 1: call notes resolve into proposal sections. Resets wait for the panel cross-fade (240ms). */
+.v1-head{display:grid}
+.v1-head > span{grid-area:1/1;transition:opacity 0s 240ms}
+.v1-head-after{opacity:0}
+.v1-stack{display:grid}
+.v1-notes,.v1-draft{grid-area:1/1}
+.v1-notes{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px;font-family:var(--font-mono);font-size:14px;line-height:20px;color:var(--ink-soft);transition:opacity 0s 240ms,transform 0s 240ms}
+.v1-sec{padding:12px 0;border-top:1px solid var(--line);opacity:0;transform:translateY(8px);transition:opacity 0s 240ms,transform 0s 240ms}
+.v1-sec:first-child{padding-top:0;border-top:0}
+.v1-sec:last-child{padding-bottom:0}
+.v1-label{font-size:11px;font-weight:600;line-height:16px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-soft)}
+.v1-val{margin-top:4px;font-size:14px;line-height:20px;color:var(--ink)}
+:root[data-how-step="1"] .how-stage .v1 .v1-notes,
+:root[data-how-seen~="1"] .how-step-vis .v1 .v1-notes{opacity:0;transform:translateY(-8px);transition:opacity 280ms var(--ease),transform 280ms var(--ease)}
+:root[data-how-step="1"] .how-stage .v1 .v1-sec,
+:root[data-how-seen~="1"] .how-step-vis .v1 .v1-sec{opacity:1;transform:none;transition:opacity 400ms var(--ease) 200ms,transform 400ms var(--ease) 200ms}
+:root[data-how-step="1"] .how-stage .v1 .v1-sec:nth-child(2),
+:root[data-how-seen~="1"] .how-step-vis .v1 .v1-sec:nth-child(2){transition-delay:320ms}
+:root[data-how-step="1"] .how-stage .v1 .v1-sec:nth-child(3),
+:root[data-how-seen~="1"] .how-step-vis .v1 .v1-sec:nth-child(3){transition-delay:440ms}
+:root[data-how-step="1"] .how-stage .v1 .v1-head-before,
+:root[data-how-seen~="1"] .how-step-vis .v1 .v1-head-before{opacity:0;transition:opacity 240ms var(--ease)}
+:root[data-how-step="1"] .how-stage .v1 .v1-head-after,
+:root[data-how-seen~="1"] .how-step-vis .v1 .v1-head-after{opacity:1;transition:opacity 240ms var(--ease) 120ms}
+
+/* Step 2: time per section bars grow to their values */
+.v2-badge{background:var(--accent-soft);color:var(--ink)}
+.v2-body{display:flex;flex-direction:column;gap:12px}
+.v2-title{font-size:14px;font-weight:600;color:var(--ink)}
+.v2-row{display:grid;grid-template-columns:56px minmax(0,1fr) 40px;align-items:center;gap:12px;font-size:13px;line-height:20px;color:var(--ink-soft)}
+.v2-track{height:8px;background:var(--paper-deep);border-radius:var(--radius-pill);overflow:hidden}
+.v2-fill{display:block;width:0;height:100%;background:var(--ink);border-radius:inherit;transition:width 0s 240ms}
+.v2-time{font-family:var(--font-mono);font-size:13px;text-align:right;color:var(--ink)}
+.v2-meta{display:flex;justify-content:space-between;gap:12px;padding-top:12px;border-top:1px solid var(--line);font-size:13px;line-height:20px;color:var(--ink-soft)}
+.v2-meta + .v2-meta{padding-top:0;border-top:0}
+:root[data-how-step="2"] .how-stage .v2 .v2-fill,
+:root[data-how-seen~="2"] .how-step-vis .v2 .v2-fill{width:var(--w);transition:width 800ms var(--ease) 120ms}
+:root[data-how-step="2"] .how-stage .v2 .v2-row:nth-of-type(3) .v2-fill,
+:root[data-how-seen~="2"] .how-step-vis .v2 .v2-row:nth-of-type(3) .v2-fill{transition-delay:220ms}
+:root[data-how-step="2"] .how-stage .v2 .v2-row:nth-of-type(4) .v2-fill,
+:root[data-how-seen~="2"] .how-step-vis .v2 .v2-row:nth-of-type(4) .v2-fill{transition-delay:320ms}
+
+/* Step 3: package picker */
+.v3-body{display:flex;flex-direction:column;gap:12px;padding:24px}
+.v3-title{font-size:15px;font-weight:600;color:var(--ink)}
+.v3-pkgs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.pkg-head{display:flex;align-items:center;justify-content:space-between;gap:6px;font-size:13px;font-weight:500}
+.pkg-head svg{color:var(--accent)}
+.pkg-price{display:block;margin-top:4px;font-size:18px;color:var(--ink)}
+.v3-label{margin-top:6px}
+.v3-total{display:flex;justify-content:space-between;align-items:baseline;padding-top:12px;border-top:1px solid var(--ink);font-size:14px;font-weight:600}
+.v3-total .price{font-size:22px}
+.v3-cta{width:100%;margin-top:4px}
+
+@media (prefers-reduced-motion: reduce){
+.how-vis,.how-step,.v1-head > span,.v1-notes,.v1-sec,.v2-fill{transition:none !important}
+.how .v1 .v1-notes,.how .v1 .v1-head-before{opacity:0}
+.how .v1 .v1-sec,.how .v1 .v1-head-after{opacity:1;transform:none}
+.how .v2 .v2-fill{width:var(--w)}
+}
+
+@container (max-width: 959px){
+.how{padding:96px 0}
+.how-eyebrow{margin-bottom:40px}
+.how-grid{grid-template-columns:minmax(0,1fr)}
+.how-stage,.how-progress{display:none}
+.how-steps{padding-left:0;display:flex;flex-direction:column;gap:72px}
+.how-step{min-height:0;gap:12px;opacity:1}
+.how-step-vis{display:flex;justify-content:center;margin-top:16px;padding:24px;box-sizing:border-box}
+}
+@container (max-width: 600px){
+.how-title{font-size:32px}
+.how-body{font-size:17px}
+.how-step-vis{padding:16px}
+.vcard-body,.v3-body{padding:20px}
+}
 
 @container (max-width: 1100px){
 .tst-item{padding:0 28px}
@@ -287,7 +391,7 @@ section[id]{scroll-margin-top:96px}
 <p class="hero-small rise rise-3">Free for 14 days · No card needed · Hosted in the EU</p>
 </div>
 
-<figure class="hero-visual rise rise-4" aria-label="A Quotelund proposal for Nordlys Studio, with notifications as the client opens, reads and signs it">
+<figure class="hero-visual grainy rise rise-4" aria-label="A Quotelund proposal for Nordlys Studio, with notifications as the client opens, reads and signs it">
 <div class="pcard">
 <div class="pcard-bar">
 <span class="pcard-path">Proposals / <strong>Nordlys Studio — Brand refresh</strong></span>
@@ -348,73 +452,114 @@ section[id]{scroll-margin-top:96px}
 </div>
 </section>
 
-<section class="sec" style="padding: 112px 0">
-<div class="wrap" style="display: flex; flex-wrap: wrap; align-items: center; gap: 48px 64px">
-<div style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
-<div class="label" style="color: #3f6b4f">Tracking</div>
-<h2 class="disp h2" style="margin: 0; font-size: clamp(30px, 2.4cqi + 14px, 44px); line-height: 1.1">Follow up at the right moment, not a week later.</h2>
-<p style="margin: 0; font-size: 18px; line-height: 28px; color: #5c5f66">Quotelund tells you the minute a client opens your proposal and what they lingered on, so your follow-up lands while the deal is warm.</p>
-<ul style="margin: 8px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px; font-size: 15px; line-height: 22px">
-<li style="display: flex; gap: 10px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3f6b4f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path d="M20 6 9 17l-5-5"></path></svg>Real-time alerts when a proposal is opened</li>
-<li style="display: flex; gap: 10px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3f6b4f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path d="M20 6 9 17l-5-5"></path></svg>Time spent on every section</li>
-<li style="display: flex; gap: 10px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3f6b4f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path d="M20 6 9 17l-5-5"></path></svg>A heads-up when it's forwarded to a new decision-maker</li>
-</ul>
-</div>
-<div style="flex: 1 1 440px; min-width: 0; background: #efede7; border-radius: 14px; padding: 32px; box-sizing: border-box; display: flex; flex-direction: column; gap: 12px" class="demo reveal">
-<div style="background: #ffffff; border: 1px solid #e4e2dc; border-radius: 14px; padding: 16px; display: flex; gap: 12px; align-items: flex-start; box-shadow: 0 12px 32px rgba(22,24,29,0.10)">
-<span style="width: 36px; height: 36px; border-radius: 999px; background: #e3ece5; color: #325641; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; flex-shrink: 0">AL</span>
-<div style="flex: 1 1 auto"><div style="font-size: 14px; line-height: 20px"><strong style="font-weight: 600">Nordlys Studio</strong> opened your proposal</div><div style="font-size: 12px; color: #5c5f66">Just now · Brand refresh</div></div>
-<span class="badge" style="background: #f6ebdd; color: #8a4e05">Viewed</span>
-</div>
-<div style="background: #ffffff; border: 1px solid #e4e2dc; border-radius: 14px; padding: 16px; display: flex; gap: 12px; align-items: flex-start">
-<span style="width: 36px; height: 36px; border-radius: 999px; background: #efede7; color: #5c5f66; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; flex-shrink: 0">EH</span>
-<div style="flex: 1 1 auto"><div style="font-size: 14px; line-height: 20px"><strong style="font-weight: 600">Erik Holm</strong> is viewing Pricing</div><div style="font-size: 12px; color: #5c5f66">Forwarded by Anna Lind · 1 h ago</div></div>
-</div>
-<div style="background: #ffffff; border: 1px solid #e4e2dc; border-radius: 14px; padding: 16px; display: flex; gap: 12px; align-items: flex-start">
-<span style="width: 36px; height: 36px; border-radius: 999px; background: #efede7; color: #5c5f66; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; flex-shrink: 0">ML</span>
-<div class="num" style="flex: 1 1 auto"><div style="font-size: 14px; line-height: 20px"><strong style="font-weight: 600">Halden &amp; Co</strong> signed · <span class="price">€12,600</span></div><div style="font-size: 12px; color: #5c5f66">Yesterday · Website rebuild</div></div>
-<span class="badge" style="background: #e3ece5; color: #325641">Signed</span>
+<section id="how-it-works" class="how">
+<div class="wrap">
+<h2 class="how-eyebrow">How it works</h2>
+<div class="how-grid">
+<div class="how-stage grainy" aria-hidden="true">
+<div class="how-vis how-vis-1">
+<div class="vcard v1">
+<div class="vcard-bar"><span class="v1-head"><span class="v1-head-before">Call notes · Nordlys Studio</span><span class="v1-head-after">Proposal draft · Nordlys Studio</span></span></div>
+<div class="vcard-body v1-stack">
+<ul class="v1-notes"><li>- brand refresh, 3 wks?</li><li>- budget around 18k</li><li>- needs site too</li></ul>
+<div class="v1-draft">
+<div class="v1-sec"><div class="v1-label">Scope</div><div class="v1-val">Brand identity refresh and a new website</div></div>
+<div class="v1-sec"><div class="v1-label">Timeline</div><div class="v1-val">Brand 3 weeks, then website 6 weeks</div></div>
+<div class="v1-sec"><div class="v1-label">Fee</div><div class="v1-val"><span class="price">€18,400</span> · 40% deposit on signing</div></div>
 </div>
 </div>
 </div>
-</section>
-
-<section id="pricing-options" class="sec" style="padding: 0 0 112px">
-<div class="wrap" style="display: flex; flex-wrap: wrap-reverse; align-items: center; gap: 48px 64px">
-<div style="flex: 1 1 440px; min-width: 0; background: #efede7; border-radius: 14px; padding: 32px; box-sizing: border-box" class="demo reveal">
-<div class="num" style="background: #ffffff; border: 1px solid #e4e2dc; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 12px 32px rgba(22,24,29,0.10)">
-<div style="font-size: 15px; font-weight: 600">Choose your package</div>
-<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
-<button type="button" class="{{essClass}}" aria-pressed="{{isEss}}" onClick="{{pickEss}}"><span style="display: flex; align-items: center; justify-content: space-between; gap: 6px; font-size: 13px; font-weight: 500">Essential<sc-if value="{{isEss}}" hint-placeholder-val="{{false}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#325641" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></sc-if></span><span class="disp price" style="display: block; font-size: 20px; letter-spacing: -0.02em; color: var(--ink)">€14,200</span></button>
-<button type="button" class="{{compClass}}" aria-pressed="{{isComp}}" onClick="{{pickComp}}"><span style="display: flex; align-items: center; justify-content: space-between; gap: 6px; font-size: 13px; font-weight: 500">Complete<sc-if value="{{isComp}}" hint-placeholder-val="{{false}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#325641" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></sc-if></span><span class="disp price" style="display: block; font-size: 20px; letter-spacing: -0.02em; color: var(--ink)">€18,400</span></button>
 </div>
-<div class="label" style="margin-top: 6px">Optional extras</div>
+<div class="how-vis how-vis-2">
+<div class="vcard v2">
+<div class="vcard-bar"><span>Nordlys Studio — Brand refresh</span><span class="badge v2-badge">Viewed</span></div>
+<div class="vcard-body v2-body">
+<div class="v2-title">Time per section</div>
+<div class="v2-row"><span>Pricing</span><span class="v2-track"><span class="v2-fill" style="--w: 92%"></span></span><span class="v2-time">4:12</span></div>
+<div class="v2-row"><span>Scope</span><span class="v2-track"><span class="v2-fill" style="--w: 40%"></span></span><span class="v2-time">1:48</span></div>
+<div class="v2-row"><span>Terms</span><span class="v2-track"><span class="v2-fill" style="--w: 14%"></span></span><span class="v2-time">0:35</span></div>
+<div class="v2-meta"><span>Opened 3 times</span><span class="v2-time">Today, 09:12</span></div>
+<div class="v2-meta"><span>Forwarded to Erik Holm</span><span class="v2-time">1 h ago</span></div>
+</div>
+</div>
+</div>
+<div class="how-vis how-vis-3">
+<div class="vcard v3">
+<div class="vcard-body v3-body">
+<div class="v3-title">Choose your package</div>
+<div class="v3-pkgs">
+<button type="button" class="{{essClass}}" aria-pressed="{{isEss}}" onClick="{{pickEss}}"><span class="pkg-head">Essential<sc-if value="{{isEss}}" hint-placeholder-val="{{false}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></sc-if></span><span class="price pkg-price">€14,200</span></button>
+<button type="button" class="{{compClass}}" aria-pressed="{{isComp}}" onClick="{{pickComp}}"><span class="pkg-head">Complete<sc-if value="{{isComp}}" hint-placeholder-val="{{false}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></sc-if></span><span class="price pkg-price">€18,400</span></button>
+</div>
+<div class="label v3-label">Optional extras</div>
 <button type="button" class="opt" aria-pressed="{{motion}}" onClick="{{toggleMotion}}"><span aria-hidden="true" class="{{motionBox}}"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span><span style="flex: 1 1 auto">Motion toolkit</span><span class="price">+€1,600</span></button>
 <button type="button" class="opt" aria-pressed="{{copy}}" onClick="{{toggleCopy}}"><span aria-hidden="true" class="{{copyBox}}"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span><span style="flex: 1 1 auto">Copywriting</span><span class="price">+€2,200</span></button>
-<div style="display: flex; justify-content: space-between; align-items: baseline; padding-top: 12px; border-top: 1px solid var(--ink)"><span style="font-size: 14px; font-weight: 600">Total</span><span class="disp price" style="font-size: 24px; letter-spacing: -0.02em">{{total}}</span></div>
-<span class="btn btn-p" style="width: 100%">Sign and pay deposit</span>
+<div class="v3-total"><span>Total</span><span class="price">{{total}}</span></div>
+<span class="btn btn-accent v3-cta">Sign and pay deposit</span>
 </div>
 </div>
-<div style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
-<div class="label" style="color: #3f6b4f">Pricing options</div>
-<h2 class="disp h2" style="margin: 0; font-size: clamp(30px, 2.4cqi + 14px, 44px); line-height: 1.1">Let clients build their own yes.</h2>
-<p style="margin: 0; font-size: 18px; line-height: 28px; color: #5c5f66">Offer packages and optional extras. Clients tick what they want and the total updates as they go, so the bigger deal becomes their idea.</p>
-<ul style="margin: 8px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px; font-size: 15px; line-height: 22px">
-<li style="display: flex; gap: 10px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3f6b4f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path d="M20 6 9 17l-5-5"></path></svg>Package tiers and optional add-ons</li>
-<li style="display: flex; gap: 10px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3f6b4f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path d="M20 6 9 17l-5-5"></path></svg>VAT handled automatically for EU clients</li>
-<li style="display: flex; gap: 10px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3f6b4f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path d="M20 6 9 17l-5-5"></path></svg>Deposits and instalments by card or SEPA</li>
-</ul>
 </div>
 </div>
-</section>
-
-<section class="sec" style="padding: 96px 0; background: #ffffff; border-top: 1px solid #e4e2dc; border-bottom: 1px solid #e4e2dc">
-<div class="wrap" style="max-width: 880px; display: flex; flex-direction: column; align-items: center; gap: 28px; text-align: center">
-<svg width="32" height="32" viewBox="0 0 24 24" fill="#3f6b4f" aria-hidden="true"><path d="M7.5 6C4.5 7.2 3 9.6 3 13v5h6v-6H6c0-2 .8-3.4 2.5-4.2zm10 0c-3 1.2-4.5 3.6-4.5 7v5h6v-6h-3c0-2 .8-3.4 2.5-4.2z"></path></svg>
-<blockquote class="disp reveal" style="margin: 0; font-size: clamp(24px, 1.2cqi + 15px, 32px); line-height: 1.25; letter-spacing: -0.02em; font-weight: 500">We used to wait a week before chasing a proposal. Now we call the moment a client opens it, and the whole conversation is different.</blockquote>
-<div style="display: flex; align-items: center; gap: 12px; text-align: left">
-<span style="width: 44px; height: 44px; border-radius: 999px; background: #e3ece5; color: #325641; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 600">ML</span>
-<div><div style="font-size: 15px; font-weight: 600">Mette Lund</div><div style="font-size: 13px; color: #5c5f66">Founder, Halden &amp; Co, Aarhus</div></div>
+<ol class="how-steps">
+<li class="how-progress" aria-hidden="true"><span></span></li>
+<li class="how-step how-step-1">
+<span class="how-num">01</span>
+<h3 class="how-title">From call notes to proposal in minutes.</h3>
+<p class="how-body">Paste your discovery notes. Quotelund drafts the scope, timeline and fee in your studio's voice, using your past projects and rates.</p>
+<div class="how-step-vis grainy" data-step="1">
+<div class="vcard v1">
+<div class="vcard-bar"><span class="v1-head"><span class="v1-head-before">Call notes · Nordlys Studio</span><span class="v1-head-after">Proposal draft · Nordlys Studio</span></span></div>
+<div class="vcard-body v1-stack">
+<ul class="v1-notes"><li>- brand refresh, 3 wks?</li><li>- budget around 18k</li><li>- needs site too</li></ul>
+<div class="v1-draft">
+<div class="v1-sec"><div class="v1-label">Scope</div><div class="v1-val">Brand identity refresh and a new website</div></div>
+<div class="v1-sec"><div class="v1-label">Timeline</div><div class="v1-val">Brand 3 weeks, then website 6 weeks</div></div>
+<div class="v1-sec"><div class="v1-label">Fee</div><div class="v1-val"><span class="price">€18,400</span> · 40% deposit on signing</div></div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li class="how-step how-step-2">
+<span class="how-num">02</span>
+<h3 class="how-title">See exactly how they read it.</h3>
+<p class="how-body">Know when it's opened, which sections get attention, and who it's forwarded to.</p>
+<div class="how-step-vis grainy" data-step="2">
+<div class="vcard v2">
+<div class="vcard-bar"><span>Nordlys Studio — Brand refresh</span><span class="badge v2-badge">Viewed</span></div>
+<div class="vcard-body v2-body">
+<div class="v2-title">Time per section</div>
+<div class="v2-row"><span>Pricing</span><span class="v2-track"><span class="v2-fill" style="--w: 92%"></span></span><span class="v2-time">4:12</span></div>
+<div class="v2-row"><span>Scope</span><span class="v2-track"><span class="v2-fill" style="--w: 40%"></span></span><span class="v2-time">1:48</span></div>
+<div class="v2-row"><span>Terms</span><span class="v2-track"><span class="v2-fill" style="--w: 14%"></span></span><span class="v2-time">0:35</span></div>
+<div class="v2-meta"><span>Opened 3 times</span><span class="v2-time">Today, 09:12</span></div>
+<div class="v2-meta"><span>Forwarded to Erik Holm</span><span class="v2-time">1 h ago</span></div>
+</div>
+</div>
+</div>
+</li>
+<li class="how-step how-step-3">
+<span class="how-num">03</span>
+<h3 class="how-title">Signed and paid in one link.</h3>
+<p class="how-body">Clients choose options, sign with an eIDAS-compliant e-signature, and pay the deposit by card or SEPA without leaving the proposal.</p>
+<div class="how-step-vis grainy" data-step="3">
+<div class="vcard v3">
+<div class="vcard-body v3-body">
+<div class="v3-title">Choose your package</div>
+<div class="v3-pkgs">
+<button type="button" class="{{essClass}}" aria-pressed="{{isEss}}" onClick="{{pickEss}}"><span class="pkg-head">Essential<sc-if value="{{isEss}}" hint-placeholder-val="{{false}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></sc-if></span><span class="price pkg-price">€14,200</span></button>
+<button type="button" class="{{compClass}}" aria-pressed="{{isComp}}" onClick="{{pickComp}}"><span class="pkg-head">Complete<sc-if value="{{isComp}}" hint-placeholder-val="{{false}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></sc-if></span><span class="price pkg-price">€18,400</span></button>
+</div>
+<div class="label v3-label">Optional extras</div>
+<button type="button" class="opt" aria-pressed="{{motion}}" onClick="{{toggleMotion}}"><span aria-hidden="true" class="{{motionBox}}"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span><span style="flex: 1 1 auto">Motion toolkit</span><span class="price">+€1,600</span></button>
+<button type="button" class="opt" aria-pressed="{{copy}}" onClick="{{toggleCopy}}"><span aria-hidden="true" class="{{copyBox}}"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span><span style="flex: 1 1 auto">Copywriting</span><span class="price">+€2,200</span></button>
+<div class="v3-total"><span>Total</span><span class="price">{{total}}</span></div>
+<span class="btn btn-accent v3-cta">Sign and pay deposit</span>
+</div>
+</div>
+</div>
+</li>
+</ol>
 </div>
 </div>
 </section>
@@ -709,6 +854,53 @@ window.DCRuntime.mount(Component);
     });
   }, { threshold: 0.15 });
   els.forEach(function (el) { io.observe(el); });
+})();
+// How it works: track the active step and scroll progress on <html> (outside the
+// re-rendered #app), so CSS can dim steps, fill the progress bar and swap visuals.
+(function () {
+  var root = document.documentElement;
+  var section = document.querySelector('.how');
+  if (!section) return;
+  var stage = section.querySelector('.how-stage');
+  var list = section.querySelector('.how-steps');
+  var steps = [].slice.call(section.querySelectorAll('.how-step'));
+  var ticking = false;
+  root.setAttribute('data-how-step', '0');
+
+  function update() {
+    ticking = false;
+    if (getComputedStyle(stage).display === 'none') return;
+    var mid = window.innerHeight / 2;
+    var r = list.getBoundingClientRect();
+    var p = Math.min(1, Math.max(0, (mid - r.top) / r.height));
+    root.style.setProperty('--how-progress', p.toFixed(4));
+    var active = r.top < window.innerHeight * 0.75 ? 1 : 0;
+    steps.forEach(function (el, i) { if (el.getBoundingClientRect().top <= mid) active = i + 1; });
+    var v = String(active);
+    if (root.getAttribute('data-how-step') !== v) root.setAttribute('data-how-step', v);
+  }
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(update);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  update();
+
+  // Mobile: play each step's visual once it scrolls into view
+  var vis = section.querySelectorAll('.how-step-vis');
+  if (!('IntersectionObserver' in window)) { root.setAttribute('data-how-seen', '1 2 3'); return; }
+  var seen = [];
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      io.unobserve(entry.target);
+      seen.push(entry.target.getAttribute('data-step'));
+      root.setAttribute('data-how-seen', seen.join(' '));
+    });
+  }, { threshold: 0.4 });
+  vis.forEach(function (el) { io.observe(el); });
 })();
 </script>
 </body>
