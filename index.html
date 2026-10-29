@@ -158,6 +158,47 @@ details summary::-webkit-details-marker{display:none}
 @keyframes ql-note-3{0%,28%{opacity:0;transform:translateY(12px) scale(.98)}34%,80%{opacity:1;transform:none}88%,100%{opacity:0;transform:translateY(-6px)}}
 @media (prefers-reduced-motion: reduce){.note-2,.note-3{animation:none !important;opacity:1;transform:none}.btn-accent,.nav-drop{transition:none !important;animation:none !important}}
 
+/* Section 3: testimonials */
+.tst{background:var(--paper);padding:96px 0}
+.tst-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.tst-item{margin:0;padding:0 48px;display:flex;flex-direction:column;align-items:center;gap:20px;text-align:center}
+.tst-item + .tst-item{border-left:1px solid var(--line)}
+.tst-item figcaption{display:flex;flex-direction:column;gap:6px}
+.tst-name{font-family:var(--font-display);font-size:24px;font-weight:400;line-height:1.2;color:var(--ink)}
+.tst-role{font-size:14px;line-height:20px;color:var(--ink-soft)}
+.tst-quote{margin:0;max-width:320px}
+.tst-quote p{margin:0;font-size:17px;line-height:1.6;color:var(--ink)}
+.tst-note{margin:56px 0 0;text-align:center;font-size:12px;line-height:16px;color:var(--ink-soft)}
+
+/* Section 4: statement */
+.stmt{background:var(--paper-deep);padding:160px 0}
+.stmt-grid{display:grid;grid-template-columns:55% 40%;justify-content:space-between;align-items:end}
+.stmt-title{margin:0;font-size:56px;line-height:1.05;color:var(--ink)}
+.stmt-body p{margin:0;font-size:18px;line-height:1.6;color:var(--ink-soft)}
+.stmt-body p + p{margin-top:20px}
+
+/* Fade up on scroll entry; the class is only added by script when motion is allowed */
+.js-fade .fade-up{opacity:0}
+
+@container (max-width: 1100px){
+.tst-item{padding:0 28px}
+}
+@container (max-width: 960px){
+.stmt-title{font-size:44px}
+}
+@container (max-width: 760px){
+.tst{padding:72px 0}
+.tst-row{grid-template-columns:minmax(0,1fr)}
+.tst-item{padding:40px 0}
+.tst-item:first-child{padding-top:0}
+.tst-item:last-child{padding-bottom:0}
+.tst-item + .tst-item{border-left:0;border-top:1px solid var(--line)}
+.tst-note{margin-top:40px}
+.stmt{padding:96px 0}
+.stmt-grid{grid-template-columns:minmax(0,1fr);gap:32px}
+.stmt-title{font-size:36px}
+}
+
 @container (max-width: 1100px){
 .nav-links{gap:24px}
 }
@@ -277,62 +318,32 @@ section[id]{scroll-margin-top:96px}
 </div>
 </section>
 
-<section id="customers" style="padding: 72px 0">
-<div class="wrap" style="display: flex; flex-direction: column; align-items: center; gap: 28px">
-<p class="label" style="margin: 0">Used by studios and agencies across Europe</p>
-<div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 24px 56px; color: #5c5f66">
-<span style="font-size: 18px; font-weight: 600; letter-spacing: 0.22em">NORDLYS</span>
-<span style="font-family: Georgia, 'Times New Roman', serif; font-size: 22px; font-style: italic">Halden &amp; Co</span>
-<span style="font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 17px">forma/works</span>
-<span class="disp" style="font-size: 21px">Studio Brisa</span>
-<span style="font-size: 20px; font-weight: 600; letter-spacing: -0.04em">KETTLE</span>
-<span style="font-size: 18px; font-weight: 500">Vantaa Labs</span>
+<section id="customers" class="tst" aria-label="What studios say">
+<div class="wrap fade-up">
+<div class="tst-row">
+<figure class="tst-item">
+<figcaption><span class="tst-name">Mette Ravn</span><span class="tst-role">Founder, Studio Ravn, Copenhagen</span></figcaption>
+<blockquote class="tst-quote"><p>“We used to send a proposal and hope. Now we call at the right moment, and most calls end with a signature.”</p></blockquote>
+</figure>
+<figure class="tst-item">
+<figcaption><span class="tst-name">Inês Duarte</span><span class="tst-role">Partner, Casa Forma, Lisbon</span></figcaption>
+<blockquote class="tst-quote"><p>“The first draft writes itself from my call notes. I spend my time on the idea, not the formatting.”</p></blockquote>
+</figure>
+<figure class="tst-item">
+<figcaption><span class="tst-name">Thabo Nkosi</span><span class="tst-role">Creative Director, Fieldwork, Cape Town</span></figcaption>
+<blockquote class="tst-quote"><p>“Clients sign and pay the deposit in the same link. We stopped chasing invoices in the first week.”</p></blockquote>
+</figure>
 </div>
+<p class="tst-note">Concept testimonials.</p>
 </div>
 </section>
 
-<section id="features" class="sec" style="padding: 96px 0; background: #ffffff; border-top: 1px solid #e4e2dc; border-bottom: 1px solid #e4e2dc">
-<div class="wrap">
-<div style="text-align: center; max-width: 640px; margin: 0 auto 48px">
-<h2 class="disp h2" style="margin: 0 0 12px; font-size: clamp(30px, 2.4cqi + 14px, 44px); line-height: 1.1">From blank page to signed deal.</h2>
-<p style="margin: 0; font-size: 18px; line-height: 28px; color: #5c5f66">One place to write, send, track and get paid, so nothing falls between a Word doc and your inbox.</p>
-</div>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px">
-
-<div class="lift reveal" style="background: var(--paper); border: 1px solid #e4e2dc; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 12px">
-<div class="label" style="color: #3f6b4f">01 · Build</div>
-<h3 class="disp" style="margin: 0; font-size: 20px; line-height: 26px; letter-spacing: -0.015em">Build in minutes</h3>
-<p style="margin: 0; font-size: 15px; line-height: 24px; color: #5c5f66">Start from a template, drop in scope, timeline and pricing blocks, and let Quotelund do the maths.</p>
-<div style="margin-top: 8px; background: #ffffff; border: 1px solid #e4e2dc; border-radius: 8px; padding: 12px; display: flex; flex-direction: column; gap: 8px; font-size: 13px">
-<div style="display: flex; justify-content: space-between; padding: 8px 10px; background: #efede7; border-radius: 4px"><span>Cover</span><span style="color: #5c5f66">Added</span></div>
-<div style="display: flex; justify-content: space-between; padding: 8px 10px; background: #efede7; border-radius: 4px"><span>Scope of work</span><span style="color: #5c5f66">Added</span></div>
-<div style="display: flex; justify-content: space-between; padding: 8px 10px; border: 1px dashed #8a877f; border-radius: 4px; color: #325641"><span>+ Pricing table</span><span>Drop here</span></div>
-</div>
-</div>
-
-<div class="lift reveal" style="background: var(--paper); border: 1px solid #e4e2dc; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 12px">
-<div class="label" style="color: #3f6b4f">02 · Track</div>
-<h3 class="disp" style="margin: 0; font-size: 20px; line-height: 26px; letter-spacing: -0.015em">Know when they're reading</h3>
-<p style="margin: 0; font-size: 15px; line-height: 24px; color: #5c5f66">See when your proposal is opened, which sections get attention and who it gets forwarded to.</p>
-<div class="num" style="margin-top: 8px; background: #ffffff; border: 1px solid #e4e2dc; border-radius: 8px; padding: 14px; display: flex; flex-direction: column; gap: 10px; font-size: 12px; color: #5c5f66">
-<div style="font-size: 13px; color: var(--ink); font-weight: 500">Time per section</div>
-<div style="display: flex; align-items: center; gap: 8px"><span style="width: 52px">Pricing</span><span style="flex: 1 1 auto; height: 8px; background: #efede7; border-radius: 999px"><span style="display: block; width: 92%; height: 8px; background: #3f6b4f; border-radius: 999px"></span></span><span style="width: 32px; text-align: right">4:12</span></div>
-<div style="display: flex; align-items: center; gap: 8px"><span style="width: 52px">Scope</span><span style="flex: 1 1 auto; height: 8px; background: #efede7; border-radius: 999px"><span style="display: block; width: 40%; height: 8px; background: #3f6b4f; border-radius: 999px"></span></span><span style="width: 32px; text-align: right">1:48</span></div>
-<div style="display: flex; align-items: center; gap: 8px"><span style="width: 52px">Terms</span><span style="flex: 1 1 auto; height: 8px; background: #efede7; border-radius: 999px"><span style="display: block; width: 14%; height: 8px; background: #3f6b4f; border-radius: 999px"></span></span><span style="width: 32px; text-align: right">0:35</span></div>
-</div>
-</div>
-
-<div class="lift reveal" style="background: var(--paper); border: 1px solid #e4e2dc; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 12px">
-<div class="label" style="color: #3f6b4f">03 · Close</div>
-<h3 class="disp" style="margin: 0; font-size: 20px; line-height: 26px; letter-spacing: -0.015em">Signed and paid in one link</h3>
-<p style="margin: 0; font-size: 15px; line-height: 24px; color: #5c5f66">Your client signs, picks optional extras and pays the deposit without leaving the proposal.</p>
-<div class="num" style="margin-top: 8px; background: #ffffff; border: 1px solid #e4e2dc; border-radius: 8px; padding: 14px; display: flex; flex-direction: column; gap: 10px">
-<div style="display: flex; justify-content: space-between; align-items: center"><span style="font-size: 13px; font-weight: 500">Nordlys Studio</span><span class="badge" style="background: #e3ece5; color: #325641">Signed</span></div>
-<div style="font-family: Georgia, 'Times New Roman', serif; font-style: italic; font-size: 22px; padding-bottom: 6px; border-bottom: 1px solid #e4e2dc">Anna Lind</div>
-<div style="display: flex; justify-content: space-between; font-size: 12px; color: #5c5f66"><span>Deposit received</span><span class="price" style="color: var(--ink); font-weight: 500">€7,360</span></div>
-</div>
-</div>
-
+<section id="features" class="stmt">
+<div class="wrap fade-up stmt-grid">
+<h2 class="stmt-title">Most deals aren't lost on the pitch. They're lost in the silence after it.</h2>
+<div class="stmt-body">
+<p>You send a beautiful proposal, then wait. Did they open it? Did they forward it to finance? Is now a good time to call?</p>
+<p>Quotelund answers all three in real time, so you follow up with timing instead of guesswork.</p>
 </div>
 </div>
 </section>
@@ -679,6 +690,26 @@ class Component extends DCLogic {
   }
 }
 window.DCRuntime.mount(Component);
+// Fade sections up 8px as they scroll into view. Uses the Web Animations API rather than
+// a class, because the runtime resyncs attributes on every render.
+(function () {
+  var els = document.querySelectorAll('.fade-up');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !els.length || !('IntersectionObserver' in window) || !Element.prototype.animate) return;
+  var ease = getComputedStyle(document.documentElement).getPropertyValue('--ease').trim() || 'ease-out';
+  document.documentElement.classList.add('js-fade');
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      io.unobserve(entry.target);
+      entry.target.animate(
+        [{ opacity: 0, transform: 'translateY(8px)' }, { opacity: 1, transform: 'none' }],
+        { duration: 480, easing: ease, fill: 'forwards' }
+      );
+    });
+  }, { threshold: 0.15 });
+  els.forEach(function (el) { io.observe(el); });
+})();
 </script>
 </body>
 </html>
