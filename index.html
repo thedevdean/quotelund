@@ -8,36 +8,34 @@
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#3f6b4f">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Inter+Tight:wght@500;600&amp;display=swap" rel="stylesheet">
+<link rel="preload" href="fonts/newsreader-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/tokens.css">
 <style>
-body{margin:0;background:#f7f6f2}
+body{margin:0;background:var(--paper)}
 a{color:#3f6b4f}a:hover{color:#325641}
 :focus-visible{outline:2px solid #3f6b4f;outline-offset:2px}
-.ql{container-type:inline-size;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;color:#16181d;background:#f7f6f2;-webkit-font-smoothing:antialiased}
+.ql{container-type:inline-size;font-family:var(--font-sans);color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased}
 .wrap{max-width:1200px;margin:0 auto;padding:0 32px;box-sizing:border-box}
-.disp{font-family:"Inter Tight",Inter,system-ui,sans-serif;font-weight:600;letter-spacing:-0.03em}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 18px;border-radius:8px;font:500 15px/1 Inter,system-ui,sans-serif;text-decoration:none;box-sizing:border-box;border:1px solid transparent;white-space:nowrap;cursor:pointer}
+.disp{font-family:var(--font-sans);font-weight:600;letter-spacing:-0.03em}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 18px;border-radius:8px;font:500 15px/1 var(--font-sans);text-decoration:none;box-sizing:border-box;border:1px solid transparent;white-space:nowrap;cursor:pointer}
 .btn-p{background:#3f6b4f;color:#ffffff;box-shadow:0 1px 2px rgba(22,24,29,0.06)}
 .btn-p:hover{background:#325641;color:#ffffff}
-.btn-s{background:#ffffff;color:#16181d;border-color:#8a877f}
-.btn-s:hover{background:#efede7;color:#16181d}
-.btn-w{background:#ffffff;color:#16181d;box-shadow:0 1px 2px rgba(22,24,29,0.12)}
-.btn-w:hover{background:#efede7;color:#16181d}
+.btn-s{background:#ffffff;color:var(--ink);border-color:#8a877f}
+.btn-s:hover{background:#efede7;color:var(--ink)}
+.btn-w{background:#ffffff;color:var(--ink);box-shadow:0 1px 2px rgba(22,24,29,0.12)}
+.btn-w:hover{background:#efede7;color:var(--ink)}
 .btn-o{background:transparent;color:#ffffff;border-color:rgba(255,255,255,0.6)}
 .btn-o:hover{background:rgba(255,255,255,0.1);color:#ffffff}
 .hero :focus-visible{outline-color:#ffffff}
-.badge{display:inline-flex;align-items:center;gap:6px;padding:2px 10px 2px 8px;border-radius:999px;font:500 12px/20px Inter,system-ui,sans-serif;white-space:nowrap}
+.badge{display:inline-flex;align-items:center;gap:6px;padding:2px 10px 2px 8px;border-radius:999px;font:500 12px/20px var(--font-sans);white-space:nowrap}
 .badge::before{content:"";width:6px;height:6px;border-radius:999px;background:currentColor}
-.label{font:500 12px/16px Inter,system-ui,sans-serif;letter-spacing:0.06em;text-transform:uppercase;color:#5c5f66}
+.label{font:500 12px/16px var(--font-sans);letter-spacing:0.06em;text-transform:uppercase;color:#5c5f66}
 .num{font-variant-numeric:tabular-nums}
 .navlinks a{color:#5c5f66;text-decoration:none;font-size:14px;font-weight:500}
-.navlinks a:hover{color:#16181d}
+.navlinks a:hover{color:var(--ink)}
 .menu{display:none}
 .foot a{color:#5c5f66;text-decoration:none;font-size:14px}
-.foot a:hover{color:#16181d}
+.foot a:hover{color:var(--ink)}
 .btn{transition:background-color .15s ease,border-color .15s ease,transform .15s ease}
 .btn:active{transform:translateY(1px)}
 @keyframes ql-rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
@@ -50,22 +48,22 @@ a{color:#3f6b4f}a:hover{color:#325641}
 @supports (animation-timeline: view()){.reveal{animation:ql-rise linear both;animation-timeline:view();animation-range:entry 0% entry 60%}}
 @media (prefers-reduced-motion: reduce){.rise,.reveal,.live::before{animation:none !important}.lift,.lift:hover,.btn,.btn:active{transition:none !important;transform:none !important}}
 span.btn{cursor:default}
-.seg{min-height:40px;padding:0 16px;border:0;border-radius:999px;font:500 14px Inter,system-ui,sans-serif;cursor:pointer;transition:background-color .2s ease,color .2s ease,box-shadow .2s ease}
-.seg-on{background:#ffffff;color:#16181d;box-shadow:0 1px 2px rgba(22,24,29,0.08)}
+.seg{min-height:40px;padding:0 16px;border:0;border-radius:999px;font:500 14px var(--font-sans);cursor:pointer;transition:background-color .2s ease,color .2s ease,box-shadow .2s ease}
+.seg-on{background:#ffffff;color:var(--ink);box-shadow:0 1px 2px rgba(22,24,29,0.08)}
 .seg-off{background:transparent;color:#5c5f66}
-.seg-off:hover{color:#16181d}
+.seg-off:hover{color:var(--ink)}
 .pkg{display:block;width:100%;text-align:left;border-radius:8px;cursor:pointer;font-family:inherit;transition:border-color .15s ease,background-color .15s ease}
 .pkg-on{border:2px solid #3f6b4f;background:#e3ece5;color:#325641;padding:10px 11px}
 .pkg-off{border:1px solid #8a877f;background:#ffffff;color:#5c5f66;padding:11px 12px}
-.pkg-off:hover{background:#f7f6f2}
-.opt{display:flex;align-items:center;gap:10px;width:100%;min-height:36px;padding:0;border:0;background:transparent;font:400 14px Inter,system-ui,sans-serif;color:#16181d;cursor:pointer;text-align:left;font-variant-numeric:tabular-nums}
+.pkg-off:hover{background:var(--paper)}
+.opt{display:flex;align-items:center;gap:10px;width:100%;min-height:36px;padding:0;border:0;background:transparent;font:400 14px var(--font-sans);color:var(--ink);cursor:pointer;text-align:left;font-variant-numeric:tabular-nums}
 .chk{width:18px;height:18px;border-radius:4px;display:flex;align-items:center;justify-content:center;box-sizing:border-box;flex-shrink:0;transition:background-color .15s ease}
 .chk-on{background:#3f6b4f}
 .chk-off{border:1px solid #8a877f;background:#ffffff}
 .chk-off svg{display:none}
 .sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 .plan{position:relative;border-radius:14px;display:flex;flex-direction:column;gap:20px;cursor:pointer;box-sizing:border-box;transition:border-color .2s ease,background-color .2s ease,box-shadow .2s ease,transform .2s ease}
-.plan-off{border:1px solid #e4e2dc;background:#f7f6f2;padding:28px}
+.plan-off{border:1px solid #e4e2dc;background:var(--paper);padding:28px}
 .plan-off:hover{border-color:#8a877f}
 .plan-on{border:2px solid #3f6b4f;background:#ffffff;padding:27px;box-shadow:0 12px 32px rgba(22,24,29,0.10)}
 .plan:has(.sr:focus-visible){outline:2px solid #3f6b4f;outline-offset:3px}
@@ -75,27 +73,27 @@ span.btn{cursor:default}
 .faq-ic::before{content:"+"}
 details[open] .faq-ic::before{content:"\2212"}
 details[open] summary{color:#325641}
-.mmenu{display:none;flex-direction:column;border-top:1px solid #e4e2dc;background:#f7f6f2;padding:4px 16px 20px}
-.mlink{display:flex;align-items:center;min-height:48px;border-bottom:1px solid #e4e2dc;color:#16181d;text-decoration:none;font-size:16px;font-weight:500}
+.mmenu{display:none;flex-direction:column;border-top:1px solid #e4e2dc;background:var(--paper);padding:4px 16px 20px}
+.mlink{display:flex;align-items:center;min-height:48px;border-bottom:1px solid #e4e2dc;color:var(--ink);text-decoration:none;font-size:16px;font-weight:500}
 .mlink:hover{color:#3f6b4f}
 .linkbtn{background:none;border:0;padding:0;font:inherit;color:#3f6b4f;text-decoration:underline;cursor:pointer}
 .linkbtn:hover{color:#325641}
 .overlay{position:fixed;inset:0;z-index:50;background:rgba(22,24,29,0.55);display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box;animation:ql-fade .2s ease both}
 .dialog{position:relative;width:100%;max-width:480px;max-height:calc(100vh - 32px);overflow:auto;background:#ffffff;border-radius:14px;padding:32px;box-sizing:border-box;box-shadow:0 24px 64px rgba(22,24,29,0.25);animation:ql-rise .3s cubic-bezier(.2,.7,.2,1) both}
 .dclose{position:absolute;top:16px;right:16px;width:44px;height:44px;border:0;border-radius:8px;background:transparent;color:#5c5f66;display:flex;align-items:center;justify-content:center;cursor:pointer}
-.dclose:hover{background:#efede7;color:#16181d}
+.dclose:hover{background:#efede7;color:var(--ink)}
 @keyframes ql-fade{from{opacity:0}to{opacity:1}}
 .field{display:flex;flex-direction:column;gap:6px}
-.field label{font-size:14px;font-weight:500;line-height:20px;color:#16181d}
-.inp{height:44px;padding:0 12px;border:1px solid #8a877f;border-radius:8px;background:#ffffff;color:#16181d;font:400 15px Inter,system-ui,sans-serif;box-sizing:border-box;width:100%}
+.field label{font-size:14px;font-weight:500;line-height:20px;color:var(--ink)}
+.inp{height:44px;padding:0 12px;border:1px solid #8a877f;border-radius:8px;background:#ffffff;color:var(--ink);font:400 15px var(--font-sans);box-sizing:border-box;width:100%}
 .inp::placeholder{color:#5c5f66}
 .inp:focus{outline:2px solid #3f6b4f;outline-offset:1px;border-color:#3f6b4f}
 .inp-err{border-color:#b3261e}
 .err{font-size:13px;line-height:20px;color:#b3261e}
-.pill{min-height:44px;padding:0 10px;border-radius:8px;font:500 14px Inter,system-ui,sans-serif;cursor:pointer;transition:border-color .15s ease,background-color .15s ease}
+.pill{min-height:44px;padding:0 10px;border-radius:8px;font:500 14px var(--font-sans);cursor:pointer;transition:border-color .15s ease,background-color .15s ease}
 .pill-on{border:2px solid #3f6b4f;background:#e3ece5;color:#325641;padding:0 9px}
-.pill-off{border:1px solid #8a877f;background:#ffffff;color:#16181d}
-.pill-off:hover{background:#f7f6f2}
+.pill-off{border:1px solid #8a877f;background:#ffffff;color:var(--ink)}
+.pill-off:hover{background:var(--paper)}
 @media (prefers-reduced-motion: reduce){.overlay,.dialog{animation:none !important}}
 details summary{cursor:pointer;list-style:none}
 details summary::-webkit-details-marker{display:none}
@@ -133,7 +131,7 @@ section[id]{scroll-margin-top:76px}
 
 <header style="position: sticky; top: 0; z-index: 10; background: rgba(247,246,242,0.94); border-bottom: 1px solid #e4e2dc">
 <div class="wrap" style="display: flex; align-items: center; gap: 40px; height: 68px">
-<a href="#top" aria-label="Quotelund home" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #16181d">
+<a href="#top" aria-label="Quotelund home" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink)">
 <svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#3f6b4f"></rect><path d="M10.5 7h8.2l4.8 4.8v12.2a1 1 0 0 1-1 1h-12a1 1 0 0 1-1-1v-16a1 1 0 0 1 1-1z" fill="#ffffff"></path><path d="M18.7 7v4.8h4.8" fill="none" stroke="#3f6b4f" stroke-width="1.4" stroke-linejoin="round"></path><path d="M12.6 18.4l2.6 2.6 4.9-5.4" fill="none" stroke="#3f6b4f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
 <span class="disp" style="font-size: 19px">Quotelund</span>
 </a>
@@ -144,7 +142,7 @@ section[id]{scroll-margin-top:76px}
 <a href="#faq">FAQ</a>
 </nav>
 <div style="margin-left: auto; display: flex; align-items: center; gap: 16px">
-<a class="login" href="login.html" style="color: #16181d; text-decoration: none; font-size: 14px; font-weight: 500">Log in</a>
+<a class="login" href="login.html" style="color: var(--ink); text-decoration: none; font-size: 14px; font-weight: 500">Log in</a>
 <a class="btn btn-p hdr-cta" href="signup.html">Start free trial</a>
 <button class="menu btn btn-s" type="button" aria-label="{{menuLabel}}" aria-expanded="{{menuOpen}}" aria-controls="mobile-menu" onClick="{{toggleMenu}}" style="padding: 0 11px"><sc-if value="{{menuClosed}}" hint-placeholder-val="{{true}}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></sc-if><sc-if value="{{menuOpen}}" hint-placeholder-val="{{false}}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"></path></svg></sc-if></button>
 </div>
@@ -178,7 +176,7 @@ section[id]{scroll-margin-top:76px}
 <div class="wrap" style="margin-top: -240px; position: relative">
 <figure class="rise rise-4" aria-label="The Quotelund proposal editor showing a pricing section and live client activity" style="margin: 0; background: #ffffff; border: 1px solid #e4e2dc; border-radius: 14px; box-shadow: 0 12px 32px rgba(22,24,29,0.10); overflow: hidden; text-align: left">
 <div style="display: flex; align-items: center; gap: 12px; height: 52px; padding: 0 16px; border-bottom: 1px solid #e4e2dc">
-<span style="font-size: 13px; color: #5c5f66; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Proposals / <strong style="color: #16181d; font-weight: 500">Nordlys Studio — Brand refresh</strong></span>
+<span style="font-size: 13px; color: #5c5f66; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Proposals / <strong style="color: var(--ink); font-weight: 500">Nordlys Studio — Brand refresh</strong></span>
 <span class="badge" style="background: #f6ebdd; color: #8a4e05; margin-left: auto">Viewed</span>
 <span class="btn btn-p" style="min-height: 32px; padding: 0 12px; font-size: 13px">Send</span>
 </div>
@@ -199,12 +197,12 @@ section[id]{scroll-margin-top:76px}
 <h2 class="disp" style="margin: 6px 0 8px; font-size: 24px; line-height: 30px; letter-spacing: -0.02em">Your investment</h2>
 <p style="margin: 0 0 20px; font-size: 14px; line-height: 22px; color: #5c5f66">Fixed price, billed in two parts: 40% on signing and the rest at launch.</p>
 <div class="num" style="font-size: 14px; line-height: 20px">
-<div style="display: flex; gap: 12px; padding: 12px 0; border-top: 1px solid #e4e2dc"><span style="flex: 1 1 auto">Discovery and strategy</span><span style="color: #5c5f66; width: 72px" class="tl">2 weeks</span><span style="width: 72px; text-align: right; white-space: nowrap">€2,400</span></div>
-<div style="display: flex; gap: 12px; padding: 12px 0; border-top: 1px solid #e4e2dc"><span style="flex: 1 1 auto">Brand identity system</span><span style="color: #5c5f66; width: 72px" class="tl">4 weeks</span><span style="width: 72px; text-align: right; white-space: nowrap">€6,800</span></div>
-<div style="display: flex; gap: 12px; padding: 12px 0; border-top: 1px solid #e4e2dc"><span style="flex: 1 1 auto">Website design and build</span><span style="color: #5c5f66; width: 72px" class="tl">6 weeks</span><span style="width: 72px; text-align: right; white-space: nowrap">€9,200</span></div>
-<div style="display: flex; gap: 12px; padding: 12px 0; border-top: 1px solid #e4e2dc; color: #5c5f66"><span style="flex: 1 1 auto">Optional: motion toolkit</span><span style="width: 72px" class="tl">2 weeks</span><span style="width: 72px; text-align: right; white-space: nowrap">+€1,600</span></div>
-<div style="display: flex; gap: 12px; padding: 14px 0 0; border-top: 1px solid #16181d; font-weight: 600"><span style="flex: 1 1 auto">Total</span><span class="disp" style="font-size: 22px; letter-spacing: -0.02em">€18,400</span></div>
-<div style="display: flex; gap: 12px; padding-top: 6px; font-size: 13px; color: #5c5f66"><span style="flex: 1 1 auto">Deposit due on signing</span><span>€7,360</span></div>
+<div style="display: flex; gap: 12px; padding: 12px 0; border-top: 1px solid #e4e2dc"><span style="flex: 1 1 auto">Discovery and strategy</span><span style="color: #5c5f66; width: 72px" class="tl">2 weeks</span><span class="price" style="width: 72px; text-align: right; white-space: nowrap">€2,400</span></div>
+<div style="display: flex; gap: 12px; padding: 12px 0; border-top: 1px solid #e4e2dc"><span style="flex: 1 1 auto">Brand identity system</span><span style="color: #5c5f66; width: 72px" class="tl">4 weeks</span><span class="price" style="width: 72px; text-align: right; white-space: nowrap">€6,800</span></div>
+<div style="display: flex; gap: 12px; padding: 12px 0; border-top: 1px solid #e4e2dc"><span style="flex: 1 1 auto">Website design and build</span><span style="color: #5c5f66; width: 72px" class="tl">6 weeks</span><span class="price" style="width: 72px; text-align: right; white-space: nowrap">€9,200</span></div>
+<div style="display: flex; gap: 12px; padding: 12px 0; border-top: 1px solid #e4e2dc; color: #5c5f66"><span style="flex: 1 1 auto">Optional: motion toolkit</span><span style="width: 72px" class="tl">2 weeks</span><span class="price" style="width: 72px; text-align: right; white-space: nowrap">+€1,600</span></div>
+<div style="display: flex; gap: 12px; padding: 14px 0 0; border-top: 1px solid var(--ink); font-weight: 600"><span style="flex: 1 1 auto">Total</span><span class="disp price" style="font-size: 22px; letter-spacing: -0.02em">€18,400</span></div>
+<div style="display: flex; gap: 12px; padding-top: 6px; font-size: 13px; color: #5c5f66"><span style="flex: 1 1 auto">Deposit due on signing</span><span class="price">€7,360</span></div>
 </div>
 </div>
 </div>
@@ -247,7 +245,7 @@ section[id]{scroll-margin-top:76px}
 </div>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px">
 
-<div class="lift reveal" style="background: #f7f6f2; border: 1px solid #e4e2dc; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 12px">
+<div class="lift reveal" style="background: var(--paper); border: 1px solid #e4e2dc; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 12px">
 <div class="label" style="color: #3f6b4f">01 · Build</div>
 <h3 class="disp" style="margin: 0; font-size: 20px; line-height: 26px; letter-spacing: -0.015em">Build in minutes</h3>
 <p style="margin: 0; font-size: 15px; line-height: 24px; color: #5c5f66">Start from a template, drop in scope, timeline and pricing blocks, and let Quotelund do the maths.</p>
@@ -258,26 +256,26 @@ section[id]{scroll-margin-top:76px}
 </div>
 </div>
 
-<div class="lift reveal" style="background: #f7f6f2; border: 1px solid #e4e2dc; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 12px">
+<div class="lift reveal" style="background: var(--paper); border: 1px solid #e4e2dc; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 12px">
 <div class="label" style="color: #3f6b4f">02 · Track</div>
 <h3 class="disp" style="margin: 0; font-size: 20px; line-height: 26px; letter-spacing: -0.015em">Know when they're reading</h3>
 <p style="margin: 0; font-size: 15px; line-height: 24px; color: #5c5f66">See when your proposal is opened, which sections get attention and who it gets forwarded to.</p>
 <div class="num" style="margin-top: 8px; background: #ffffff; border: 1px solid #e4e2dc; border-radius: 8px; padding: 14px; display: flex; flex-direction: column; gap: 10px; font-size: 12px; color: #5c5f66">
-<div style="font-size: 13px; color: #16181d; font-weight: 500">Time per section</div>
+<div style="font-size: 13px; color: var(--ink); font-weight: 500">Time per section</div>
 <div style="display: flex; align-items: center; gap: 8px"><span style="width: 52px">Pricing</span><span style="flex: 1 1 auto; height: 8px; background: #efede7; border-radius: 999px"><span style="display: block; width: 92%; height: 8px; background: #3f6b4f; border-radius: 999px"></span></span><span style="width: 32px; text-align: right">4:12</span></div>
 <div style="display: flex; align-items: center; gap: 8px"><span style="width: 52px">Scope</span><span style="flex: 1 1 auto; height: 8px; background: #efede7; border-radius: 999px"><span style="display: block; width: 40%; height: 8px; background: #3f6b4f; border-radius: 999px"></span></span><span style="width: 32px; text-align: right">1:48</span></div>
 <div style="display: flex; align-items: center; gap: 8px"><span style="width: 52px">Terms</span><span style="flex: 1 1 auto; height: 8px; background: #efede7; border-radius: 999px"><span style="display: block; width: 14%; height: 8px; background: #3f6b4f; border-radius: 999px"></span></span><span style="width: 32px; text-align: right">0:35</span></div>
 </div>
 </div>
 
-<div class="lift reveal" style="background: #f7f6f2; border: 1px solid #e4e2dc; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 12px">
+<div class="lift reveal" style="background: var(--paper); border: 1px solid #e4e2dc; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 12px">
 <div class="label" style="color: #3f6b4f">03 · Close</div>
 <h3 class="disp" style="margin: 0; font-size: 20px; line-height: 26px; letter-spacing: -0.015em">Signed and paid in one link</h3>
 <p style="margin: 0; font-size: 15px; line-height: 24px; color: #5c5f66">Your client signs, picks optional extras and pays the deposit without leaving the proposal.</p>
 <div class="num" style="margin-top: 8px; background: #ffffff; border: 1px solid #e4e2dc; border-radius: 8px; padding: 14px; display: flex; flex-direction: column; gap: 10px">
 <div style="display: flex; justify-content: space-between; align-items: center"><span style="font-size: 13px; font-weight: 500">Nordlys Studio</span><span class="badge" style="background: #e3ece5; color: #325641">Signed</span></div>
 <div style="font-family: Georgia, 'Times New Roman', serif; font-style: italic; font-size: 22px; padding-bottom: 6px; border-bottom: 1px solid #e4e2dc">Anna Lind</div>
-<div style="display: flex; justify-content: space-between; font-size: 12px; color: #5c5f66"><span>Deposit received</span><span style="color: #16181d; font-weight: 500">€7,360</span></div>
+<div style="display: flex; justify-content: space-between; font-size: 12px; color: #5c5f66"><span>Deposit received</span><span class="price" style="color: var(--ink); font-weight: 500">€7,360</span></div>
 </div>
 </div>
 
@@ -309,7 +307,7 @@ section[id]{scroll-margin-top:76px}
 </div>
 <div style="background: #ffffff; border: 1px solid #e4e2dc; border-radius: 14px; padding: 16px; display: flex; gap: 12px; align-items: flex-start">
 <span style="width: 36px; height: 36px; border-radius: 999px; background: #efede7; color: #5c5f66; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; flex-shrink: 0">ML</span>
-<div class="num" style="flex: 1 1 auto"><div style="font-size: 14px; line-height: 20px"><strong style="font-weight: 600">Halden &amp; Co</strong> signed · €12,600</div><div style="font-size: 12px; color: #5c5f66">Yesterday · Website rebuild</div></div>
+<div class="num" style="flex: 1 1 auto"><div style="font-size: 14px; line-height: 20px"><strong style="font-weight: 600">Halden &amp; Co</strong> signed · <span class="price">€12,600</span></div><div style="font-size: 12px; color: #5c5f66">Yesterday · Website rebuild</div></div>
 <span class="badge" style="background: #e3ece5; color: #325641">Signed</span>
 </div>
 </div>
@@ -322,13 +320,13 @@ section[id]{scroll-margin-top:76px}
 <div class="num" style="background: #ffffff; border: 1px solid #e4e2dc; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 12px 32px rgba(22,24,29,0.10)">
 <div style="font-size: 15px; font-weight: 600">Choose your package</div>
 <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
-<button type="button" class="{{essClass}}" aria-pressed="{{isEss}}" onClick="{{pickEss}}"><span style="display: flex; align-items: center; justify-content: space-between; gap: 6px; font-size: 13px; font-weight: 500">Essential<sc-if value="{{isEss}}" hint-placeholder-val="{{false}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#325641" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></sc-if></span><span class="disp" style="display: block; font-size: 20px; letter-spacing: -0.02em; color: #16181d">€14,200</span></button>
-<button type="button" class="{{compClass}}" aria-pressed="{{isComp}}" onClick="{{pickComp}}"><span style="display: flex; align-items: center; justify-content: space-between; gap: 6px; font-size: 13px; font-weight: 500">Complete<sc-if value="{{isComp}}" hint-placeholder-val="{{false}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#325641" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></sc-if></span><span class="disp" style="display: block; font-size: 20px; letter-spacing: -0.02em; color: #16181d">€18,400</span></button>
+<button type="button" class="{{essClass}}" aria-pressed="{{isEss}}" onClick="{{pickEss}}"><span style="display: flex; align-items: center; justify-content: space-between; gap: 6px; font-size: 13px; font-weight: 500">Essential<sc-if value="{{isEss}}" hint-placeholder-val="{{false}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#325641" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></sc-if></span><span class="disp price" style="display: block; font-size: 20px; letter-spacing: -0.02em; color: var(--ink)">€14,200</span></button>
+<button type="button" class="{{compClass}}" aria-pressed="{{isComp}}" onClick="{{pickComp}}"><span style="display: flex; align-items: center; justify-content: space-between; gap: 6px; font-size: 13px; font-weight: 500">Complete<sc-if value="{{isComp}}" hint-placeholder-val="{{false}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#325641" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></sc-if></span><span class="disp price" style="display: block; font-size: 20px; letter-spacing: -0.02em; color: var(--ink)">€18,400</span></button>
 </div>
 <div class="label" style="margin-top: 6px">Optional extras</div>
-<button type="button" class="opt" aria-pressed="{{motion}}" onClick="{{toggleMotion}}"><span aria-hidden="true" class="{{motionBox}}"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span><span style="flex: 1 1 auto">Motion toolkit</span><span>+€1,600</span></button>
-<button type="button" class="opt" aria-pressed="{{copy}}" onClick="{{toggleCopy}}"><span aria-hidden="true" class="{{copyBox}}"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span><span style="flex: 1 1 auto">Copywriting</span><span>+€2,200</span></button>
-<div style="display: flex; justify-content: space-between; align-items: baseline; padding-top: 12px; border-top: 1px solid #16181d"><span style="font-size: 14px; font-weight: 600">Total</span><span class="disp" style="font-size: 24px; letter-spacing: -0.02em">{{total}}</span></div>
+<button type="button" class="opt" aria-pressed="{{motion}}" onClick="{{toggleMotion}}"><span aria-hidden="true" class="{{motionBox}}"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span><span style="flex: 1 1 auto">Motion toolkit</span><span class="price">+€1,600</span></button>
+<button type="button" class="opt" aria-pressed="{{copy}}" onClick="{{toggleCopy}}"><span aria-hidden="true" class="{{copyBox}}"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span><span style="flex: 1 1 auto">Copywriting</span><span class="price">+€2,200</span></button>
+<div style="display: flex; justify-content: space-between; align-items: baseline; padding-top: 12px; border-top: 1px solid var(--ink)"><span style="font-size: 14px; font-weight: 600">Total</span><span class="disp price" style="font-size: 24px; letter-spacing: -0.02em">{{total}}</span></div>
 <span class="btn btn-p" style="width: 100%">Sign and pay deposit</span>
 </div>
 </div>
@@ -379,7 +377,7 @@ section[id]{scroll-margin-top:76px}
 
 <label class="{{soloCard}}"><input class="sr" type="radio" name="plan" value="solo" checked="{{isSolo}}" onChange="{{pickSolo}}">
 <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px"><div><div style="font-size: 17px; font-weight: 600">Solo</div><div style="font-size: 14px; color: #5c5f66">For freelancers</div></div><span aria-hidden="true" class="{{soloDot}}"></span></div>
-<div><div style="display: flex; align-items: baseline; gap: 6px"><span class="disp" style="font-size: 44px; line-height: 48px">{{soloPrice}}</span><span style="font-size: 14px; color: #5c5f66">/ month</span></div><div style="font-size: 13px; line-height: 20px; color: #5c5f66">{{soloNote}}</div></div>
+<div><div style="display: flex; align-items: baseline; gap: 6px"><span class="disp price" style="font-size: 44px; line-height: 48px">{{soloPrice}}</span><span style="font-size: 14px; color: #5c5f66">/ month</span></div><div style="font-size: 13px; line-height: 20px; color: #5c5f66">{{soloNote}}</div></div>
 <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 14px; line-height: 21px">
 <li style="display: flex; gap: 8px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3f6b4f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path d="M20 6 9 17l-5-5"></path></svg>1 user</li>
 <li style="display: flex; gap: 8px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3f6b4f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path d="M20 6 9 17l-5-5"></path></svg>Unlimited proposals</li>
@@ -391,7 +389,7 @@ section[id]{scroll-margin-top:76px}
 
 <label class="{{studioCard}}"><input class="sr" type="radio" name="plan" value="studio" checked="{{isStudio}}" onChange="{{pickStudio}}">
 <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px"><div><div style="font-size: 17px; font-weight: 600">Studio</div><div style="font-size: 14px; color: #5c5f66">For teams up to 5</div></div><div style="display: flex; align-items: center; gap: 10px"><span class="badge" style="background: #e3ece5; color: #325641">Most popular</span><span aria-hidden="true" class="{{studioDot}}"></span></div></div>
-<div><div style="display: flex; align-items: baseline; gap: 6px"><span class="disp" style="font-size: 44px; line-height: 48px">{{studioPrice}}</span><span style="font-size: 14px; color: #5c5f66">/ month</span></div><div style="font-size: 13px; line-height: 20px; color: #5c5f66">{{studioNote}}</div></div>
+<div><div style="display: flex; align-items: baseline; gap: 6px"><span class="disp price" style="font-size: 44px; line-height: 48px">{{studioPrice}}</span><span style="font-size: 14px; color: #5c5f66">/ month</span></div><div style="font-size: 13px; line-height: 20px; color: #5c5f66">{{studioNote}}</div></div>
 <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 14px; line-height: 21px">
 <li style="display: flex; gap: 8px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3f6b4f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path d="M20 6 9 17l-5-5"></path></svg>Everything in Solo</li>
 <li style="display: flex; gap: 8px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3f6b4f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path d="M20 6 9 17l-5-5"></path></svg>Deposits and payments</li>
@@ -448,7 +446,7 @@ section[id]{scroll-margin-top:76px}
 
 <section style="padding: 0 0 96px">
 <div class="wrap">
-<div class="cta-panel" style="background: #16181d; border-radius: 14px; padding: 72px 48px; display: flex; flex-direction: column; align-items: center; gap: 20px; text-align: center">
+<div class="cta-panel" style="background: var(--ink); border-radius: 14px; padding: 72px 48px; display: flex; flex-direction: column; align-items: center; gap: 20px; text-align: center">
 <h2 class="disp h2" style="margin: 0; font-size: clamp(30px, 2.4cqi + 14px, 44px); line-height: 1.1; color: #f2f1ec; max-width: 640px">Your next proposal could be signed by Friday.</h2>
 <p style="margin: 0; font-size: 18px; line-height: 28px; color: #a4a7ad">Start free for 14 days. No card needed.</p>
 <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 8px">
@@ -466,9 +464,9 @@ section[id]{scroll-margin-top:76px}
 <p style="margin: 0; font-size: 14px; line-height: 22px; color: #5c5f66; max-width: 280px">Proposal software for agencies. Built in Copenhagen.</p>
 </div>
 <div style="flex: 2 1 420px; min-width: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px">
-<nav aria-label="Product" style="display: flex; flex-direction: column; gap: 12px"><div class="label" style="color: #16181d">Product</div><a href="#features">Features</a><a href="#pricing">Pricing</a><a href="#">Templates</a><a href="#">Integrations</a></nav>
-<nav aria-label="Company" style="display: flex; flex-direction: column; gap: 12px"><div class="label" style="color: #16181d">Company</div><a href="#">About</a><a href="#">Careers</a><a href="#">Contact</a></nav>
-<nav aria-label="Legal" style="display: flex; flex-direction: column; gap: 12px"><div class="label" style="color: #16181d">Legal</div><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Cookies</a></nav>
+<nav aria-label="Product" style="display: flex; flex-direction: column; gap: 12px"><div class="label" style="color: var(--ink)">Product</div><a href="#features">Features</a><a href="#pricing">Pricing</a><a href="#">Templates</a><a href="#">Integrations</a></nav>
+<nav aria-label="Company" style="display: flex; flex-direction: column; gap: 12px"><div class="label" style="color: var(--ink)">Company</div><a href="#">About</a><a href="#">Careers</a><a href="#">Contact</a></nav>
+<nav aria-label="Legal" style="display: flex; flex-direction: column; gap: 12px"><div class="label" style="color: var(--ink)">Legal</div><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Cookies</a></nav>
 </div>
 </div>
 <div class="wrap">

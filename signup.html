@@ -8,35 +8,34 @@
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#3f6b4f">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Inter+Tight:wght@500;600&amp;display=swap" rel="stylesheet">
+<link rel="preload" href="fonts/newsreader-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/tokens.css">
 <style>
-body{margin:0;background:#f7f6f2}
+body{margin:0;background:var(--paper)}
 a{color:#3f6b4f}a:hover{color:#325641}
 :focus-visible{outline:2px solid #3f6b4f;outline-offset:2px}
-.su{container-type:inline-size;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;color:#16181d;background:#f7f6f2;-webkit-font-smoothing:antialiased}
-.disp{font-family:"Inter Tight",Inter,system-ui,sans-serif;font-weight:600;letter-spacing:-0.03em}
+.su{container-type:inline-size;font-family:var(--font-sans);color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased}
+.disp{font-family:var(--font-sans);font-weight:600;letter-spacing:-0.03em}
 .field{display:flex;flex-direction:column;gap:6px}
-.field label,.legend{font-size:14px;font-weight:500;line-height:20px;color:#16181d}
-.inp{height:44px;padding:0 12px;border:1px solid #8a877f;border-radius:8px;background:#ffffff;color:#16181d;font:400 15px Inter,system-ui,sans-serif;box-sizing:border-box;width:100%}
+.field label,.legend{font-size:14px;font-weight:500;line-height:20px;color:var(--ink)}
+.inp{height:44px;padding:0 12px;border:1px solid #8a877f;border-radius:8px;background:#ffffff;color:var(--ink);font:400 15px var(--font-sans);box-sizing:border-box;width:100%}
 .inp::placeholder{color:#5c5f66}
 .inp:focus{outline:2px solid #3f6b4f;outline-offset:1px;border-color:#3f6b4f}
 .help{font-size:13px;line-height:20px;color:#5c5f66}
 .err{font-size:13px;line-height:20px;color:#b3261e}
 .inp-err{border-color:#b3261e}
 .inp-err:focus{outline-color:#b3261e;border-color:#b3261e}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 20px;border-radius:8px;font:500 16px/1 Inter,system-ui,sans-serif;text-decoration:none;box-sizing:border-box;border:1px solid transparent;cursor:pointer;transition:background-color .15s ease,transform .15s ease}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 20px;border-radius:8px;font:500 16px/1 var(--font-sans);text-decoration:none;box-sizing:border-box;border:1px solid transparent;cursor:pointer;transition:background-color .15s ease,transform .15s ease}
 .btn:active{transform:translateY(1px)}
 .btn-p{background:#3f6b4f;color:#ffffff;box-shadow:0 1px 2px rgba(22,24,29,0.06)}
 .btn-p:hover{background:#325641;color:#ffffff}
-.btn-s{background:#ffffff;color:#16181d;border-color:#8a877f}
-.btn-s:hover{background:#efede7;color:#16181d}
-.pill{min-height:44px;padding:0 14px;border-radius:8px;font:500 14px Inter,system-ui,sans-serif;cursor:pointer;transition:border-color .15s ease,background-color .15s ease,color .15s ease}
+.btn-s{background:#ffffff;color:var(--ink);border-color:#8a877f}
+.btn-s:hover{background:#efede7;color:var(--ink)}
+.pill{min-height:44px;padding:0 14px;border-radius:8px;font:500 14px var(--font-sans);cursor:pointer;transition:border-color .15s ease,background-color .15s ease,color .15s ease}
 .pill-on{border:2px solid #3f6b4f;background:#e3ece5;color:#325641;padding:0 13px}
-.pill-off{border:1px solid #8a877f;background:#ffffff;color:#16181d}
-.pill-off:hover{background:#f7f6f2}
-.check{display:flex;gap:10px;align-items:flex-start;font-size:14px;line-height:21px;color:#16181d;cursor:pointer}
+.pill-off{border:1px solid #8a877f;background:#ffffff;color:var(--ink)}
+.pill-off:hover{background:var(--paper)}
+.check{display:flex;gap:10px;align-items:flex-start;font-size:14px;line-height:21px;color:var(--ink);cursor:pointer}
 .check input{width:18px;height:18px;margin:1px 0 0;accent-color:#3f6b4f;flex-shrink:0}
 @keyframes su-rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
 .rise{animation:su-rise .6s cubic-bezier(.2,.7,.2,1) both}
@@ -60,7 +59,7 @@ section[id]{scroll-margin-top:76px}
 
 <main class="main" style="flex: 1 1 560px; min-width: 0; box-sizing: border-box; padding: 32px 64px 64px; display: flex; flex-direction: column">
 <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap">
-<a href="index.html" aria-label="Back to the Quotelund home page" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #16181d">
+<a href="index.html" aria-label="Back to the Quotelund home page" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink)">
 <svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#3f6b4f"></rect><path d="M10.5 7h8.2l4.8 4.8v12.2a1 1 0 0 1-1 1h-12a1 1 0 0 1-1-1v-16a1 1 0 0 1 1-1z" fill="#ffffff"></path><path d="M18.7 7v4.8h4.8" fill="none" stroke="#3f6b4f" stroke-width="1.4" stroke-linejoin="round"></path><path d="M12.6 18.4l2.6 2.6 4.9-5.4" fill="none" stroke="#3f6b4f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
 <span class="disp" style="font-size: 19px">Quotelund</span>
 </a>
@@ -120,7 +119,7 @@ section[id]{scroll-margin-top:76px}
 <li style="display: flex; gap: 12px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path d="M20 6 9 17l-5-5"></path></svg>Pick a plan only when your trial ends</li>
 </ul>
 </div>
-<figure style="margin: 0; max-width: 460px; background: #ffffff; color: #16181d; border-radius: 14px; padding: 24px; box-shadow: 0 12px 32px rgba(22,24,29,0.18)">
+<figure style="margin: 0; max-width: 460px; background: #ffffff; color: var(--ink); border-radius: 14px; padding: 24px; box-shadow: 0 12px 32px rgba(22,24,29,0.18)">
 <blockquote style="margin: 0; font-size: 16px; line-height: 25px">We used to wait a week before chasing a proposal. Now we call the moment a client opens it.</blockquote>
 <figcaption style="display: flex; align-items: center; gap: 12px; margin-top: 16px">
 <span style="width: 40px; height: 40px; border-radius: 999px; background: #e3ece5; color: #325641; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600">ML</span>
