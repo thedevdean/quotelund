@@ -19,7 +19,7 @@
   --night-card:#1A1917;
   --night-text:#EDE8DF;
   --night-soft:#9A948A;
-  --accent:#C4552D;
+  --accent:#BE5029; /* white text on accent: 4.81:1 (WCAG AA) */
   --accent-soft:#E9C3B0;
 
   /* Type */
