@@ -111,7 +111,8 @@ details summary::-webkit-details-marker{display:none}
 .btn-accent:hover{background:color-mix(in srgb,var(--accent) 86%,var(--ink));color:#ffffff}
 
 /* Hero */
-.hero{background:var(--paper);--hero-pt:clamp(92px,13vh,120px);--hero-fs:min(clamp(48px,8.9vh,80px),calc((100cqi - 64px) / 11.2));--hero-gap:clamp(16px,3vh,32px);--hero-panel:clamp(400px,calc(100vh - var(--hero-pt) - 36px - 2 * var(--hero-fs) - var(--hero-gap) - 12px),540px);padding:var(--hero-pt) 0 48px}
+/* Eyebrow keeps >= 32px below the nav (nav ends at 80px); the extra padding comes out of the headline gap, not the panel */
+.hero{background:var(--paper);--hero-pt:clamp(112px,13vh,120px);--hero-fs:min(clamp(48px,8.9vh,80px),calc((100cqi - 64px) / 11.2));--hero-gap:max(8px,calc(clamp(92px,13vh,120px) + clamp(16px,3vh,32px) - var(--hero-pt)));--hero-panel:clamp(400px,calc(100vh - var(--hero-pt) - 36px - 2 * var(--hero-fs) - var(--hero-gap) - 8px),540px);padding:var(--hero-pt) 0 48px}
 .hero-grid{display:grid;grid-template-columns:minmax(0,55fr) minmax(0,45fr);gap:64px;align-items:center}
 .hero-eyebrow{margin:0 0 20px;font-size:12px;font-weight:600;line-height:16px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-soft)}
 .hero-head{margin-bottom:var(--hero-gap)}
@@ -283,6 +284,89 @@ details summary::-webkit-details-marker{display:none}
 .v3-total{padding-top:8px}
 .v3-total .price{font-size:20px}
 .v3-cta{min-height:40px}
+}
+
+/* Section 6: live tracker. Loop state lives on <html> (outside the re-rendered #app):
+   --trk (feed items shown), --nudge, --signed, and data-trk-pill / -sec / -fwd / -fade. */
+.live{background:var(--night);padding:160px 0;color:var(--night-text)}
+.live-eyebrow{margin:0 0 20px;font-size:12px;font-weight:600;line-height:16px;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent)}
+.live-title{margin:0;font-size:56px;line-height:1.05;color:var(--night-text)}
+.live-sub{margin:20px 0 0;max-width:560px;font-size:18px;line-height:1.6;color:var(--night-soft)}
+.live :focus-visible{outline-color:var(--night-text)}
+
+.trk{margin-top:56px;background:var(--night-card);border:1px solid rgba(255,255,255,0.06);border-radius:var(--radius-card);overflow:hidden}
+.trk-bar{display:flex;align-items:center;gap:16px;min-height:60px;padding:0 20px 0 24px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.trk-path{min-width:0;flex:1 1 auto;font-size:14px;color:var(--night-soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.trk-path strong{color:var(--night-text);font-weight:500}
+.trk-avatars{display:flex}
+.trk-av{width:28px;height:28px;display:flex;align-items:center;justify-content:center;border-radius:var(--radius-pill);background:var(--accent-soft);color:var(--ink);font-size:11px;font-weight:600;box-shadow:0 0 0 2px var(--night-card)}
+.trk-av-2{margin-left:-8px;background:var(--paper-deep);opacity:0;transform:scale(.6);transition:opacity 480ms var(--ease),transform 480ms var(--ease)}
+:root[data-trk-fwd="1"] .trk-av-2{opacity:1;transform:none}
+.trk-pill{display:grid;font-size:12px;font-weight:600;line-height:24px}
+.trk-pill > span{grid-area:1/1;padding:0 12px;border-radius:var(--radius-pill);text-align:center;opacity:0;transition:opacity 240ms var(--ease)}
+.trk-pill-sent{background:rgba(255,255,255,0.08);color:var(--night-soft)}
+.trk-pill-viewed{background:var(--accent-soft);color:var(--ink)}
+.trk-pill-signed{background:var(--accent);color:#ffffff}
+:root:not([data-trk-pill]) .trk-pill-sent,
+:root[data-trk-pill="sent"] .trk-pill-sent,
+:root[data-trk-pill="viewed"] .trk-pill-viewed,
+:root[data-trk-pill="signed"] .trk-pill-signed{opacity:1}
+.trk-replay{display:inline-flex;align-items:center;gap:6px;min-height:32px;padding:0 12px;border:1px solid rgba(255,255,255,0.12);border-radius:var(--radius-pill);background:transparent;color:var(--night-soft);font:500 12px var(--font-sans);cursor:pointer;transition:color .2s var(--ease),border-color .2s var(--ease)}
+.trk-replay:hover{color:var(--night-text);border-color:rgba(255,255,255,0.3)}
+:root[data-trk-static="1"] .trk-replay{display:none}
+
+.trk-body{display:grid;grid-template-columns:40% 60%;height:460px;transition:opacity 400ms var(--ease)}
+:root[data-trk-fade="1"] .trk-body{opacity:0}
+.trk-secs{padding:24px;border-right:1px solid rgba(255,255,255,0.06)}
+.trk-label{font-size:11px;font-weight:600;line-height:16px;letter-spacing:0.08em;text-transform:uppercase;color:var(--night-soft)}
+.trk-sec-list{margin:12px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:4px}
+.trk-sec{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:44px;padding:0 14px;border-radius:12px;font-size:15px;color:var(--night-soft);box-shadow:inset 2px 0 0 transparent;transition:background-color 240ms var(--ease),color 240ms var(--ease),box-shadow 240ms var(--ease)}
+.trk-time{font-family:var(--font-mono);font-size:13px;color:var(--accent-soft);opacity:0;transition:opacity 240ms var(--ease)}
+:root[data-trk-sec="1"] .trk-sec-1,:root[data-trk-sec="2"] .trk-sec-2,:root[data-trk-sec="4"] .trk-sec-4,:root[data-trk-sec="6"] .trk-sec-6{background:rgba(190,80,41,0.16);color:var(--night-text);box-shadow:inset 2px 0 0 var(--accent)}
+:root[data-trk-sec="1"] .trk-sec-1 .trk-time,:root[data-trk-sec="2"] .trk-sec-2 .trk-time,:root[data-trk-sec="4"] .trk-sec-4 .trk-time{opacity:1}
+.trk-now{display:none}
+
+.trk-feed-col{position:relative;overflow:hidden}
+.trk-feed{margin:0;padding:12px 24px;list-style:none;height:100%;box-sizing:border-box;display:flex;flex-direction:column-reverse;justify-content:flex-end}
+.trk-ev{--on:clamp(0, var(--trk, 0) - var(--i) + 1, 1);--old:clamp(0, var(--trk, 0) - var(--i), 1);overflow:hidden;max-height:calc(var(--on) * var(--h, 64px));opacity:var(--on);transform:translateY(calc((1 - var(--on)) * -12px));color:color-mix(in srgb, var(--night-soft) calc(var(--old) * 100%), var(--night-text));transition:max-height 480ms var(--ease),opacity 480ms var(--ease),transform 480ms var(--ease),color 480ms var(--ease)}
+.trk-ev-in{display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.06)}
+.trk-ev p{margin:5px 0 0;font-size:15px;line-height:22px}
+.trk-meta{color:var(--night-soft)}
+.trk-amount{font-family:var(--font-mono)}
+.trk-ic{width:32px;height:32px;flex-shrink:0;display:flex;align-items:center;justify-content:center;border-radius:var(--radius-pill);background:rgba(255,255,255,0.06);color:currentColor}
+.trk-ic-accent{background:var(--accent);color:#ffffff}
+.trk-sig{display:block;margin-top:6px}
+.trk-sig path{fill:none;stroke:var(--night-text);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:calc(1 - var(--signed, 0));transition:stroke-dashoffset 1200ms var(--ease) 200ms}
+
+.trk-nudge{position:absolute;left:24px;right:24px;bottom:20px;padding:16px 18px;background:#24221F;border:1px solid rgba(255,255,255,0.08);border-radius:16px;box-shadow:0 24px 48px -16px rgba(0,0,0,0.6);opacity:var(--nudge, 0);transform:translateY(calc((1 - var(--nudge, 0)) * 24px));transition:opacity 480ms var(--ease),transform 480ms var(--ease);pointer-events:none}
+.trk-nudge-head{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent-soft)}
+.trk-nudge p{margin:8px 0 12px;font-size:15px;line-height:22px;color:var(--night-soft)}
+.trk-nudge strong{color:var(--night-text);font-weight:600}
+.trk-call{min-height:36px;padding:0 16px;font-size:14px}
+
+@media (prefers-reduced-motion: reduce){
+.trk-body,.trk-ev,.trk-nudge,.trk-sec,.trk-time,.trk-pill > span,.trk-av-2,.trk-sig path{transition:none !important}
+}
+
+@container page (max-width: 959px){
+.live{padding:96px 0}
+.live-title{font-size:36px}
+.live-sub{font-size:17px}
+.trk{margin-top:40px}
+.trk-bar{flex-wrap:wrap;gap:10px 12px;padding:14px 16px}
+.trk-path{flex-basis:100%}
+.trk-replay{margin-left:auto}
+.trk-body{grid-template-columns:minmax(0,1fr);height:auto}
+.trk-feed-col{order:1;height:430px}
+.trk-feed{padding:8px 16px}
+.trk-secs{order:2;padding:0;border-right:0;border-top:1px solid rgba(255,255,255,0.06)}
+.trk-secs > .trk-label,.trk-sec-list{display:none}
+.trk-now{display:flex;align-items:center;gap:12px;min-height:56px;padding:0 16px;font-size:15px;color:var(--night-text)}
+.trk-now-name{display:grid;flex:1 1 auto}
+.trk-now-name > span{grid-area:1/1;opacity:0;transition:opacity 240ms var(--ease)}
+:root:not([data-trk-sec]) .trk-now-0,:root[data-trk-sec="0"] .trk-now-0,:root[data-trk-sec="1"] .trk-now-1,:root[data-trk-sec="2"] .trk-now-2,:root[data-trk-sec="4"] .trk-now-4,:root[data-trk-sec="6"] .trk-now-6{opacity:1}
+:root[data-trk-sec="1"] .trk-now-time,:root[data-trk-sec="2"] .trk-now-time,:root[data-trk-sec="4"] .trk-now-time{opacity:1}
+.trk-nudge{left:16px;right:16px;bottom:16px}
 }
 
 @media (prefers-reduced-motion: reduce){
@@ -589,6 +673,54 @@ section[id]{scroll-margin-top:96px}
 </div>
 </section>
 
+<section id="live" class="live">
+<div class="wrap">
+<p class="live-eyebrow">Live</p>
+<h2 class="live-title">Know the moment they're reading.</h2>
+<p class="live-sub">Quotelund watches every proposal and tells you when it's time to pick up the phone.</p>
+
+<div class="trk" role="group" aria-label="Example: live tracking of a proposal for Nordlys Studio">
+<div class="trk-bar">
+<span class="trk-path">Proposals / <strong>Nordlys Studio — Brand refresh</strong></span>
+<span class="trk-avatars" aria-hidden="true"><span class="trk-av">AL</span><span class="trk-av trk-av-2">EH</span></span>
+<span class="trk-pill"><span class="trk-pill-sent">Sent</span><span class="trk-pill-viewed">Viewed</span><span class="trk-pill-signed">Signed</span></span>
+<button type="button" class="trk-replay"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"></path><path d="M3 4v5h5"></path></svg>Replay</button>
+</div>
+
+<div class="trk-body">
+<div class="trk-secs">
+<div class="trk-label">Sections</div>
+<ol class="trk-sec-list">
+<li class="trk-sec trk-sec-1"><span>Cover</span><span class="trk-time" data-sec="1">0:00</span></li>
+<li class="trk-sec trk-sec-2"><span>Scope of work</span><span class="trk-time" data-sec="2">0:00</span></li>
+<li class="trk-sec trk-sec-3"><span>Timeline</span><span class="trk-time" data-sec="3">0:00</span></li>
+<li class="trk-sec trk-sec-4"><span>Pricing</span><span class="trk-time" data-sec="4">0:00</span></li>
+<li class="trk-sec trk-sec-5"><span>Terms</span><span class="trk-time" data-sec="5">0:00</span></li>
+<li class="trk-sec trk-sec-6"><span>Sign and pay</span></li>
+</ol>
+<div class="trk-now"><span class="trk-label">Now reading</span><span class="trk-now-name"><span class="trk-now-0">Not opened yet</span><span class="trk-now-1">Cover</span><span class="trk-now-2">Scope of work</span><span class="trk-now-4">Pricing</span><span class="trk-now-6">Sign and pay</span></span><span class="trk-time trk-now-time" data-sec="now">0:00</span></div>
+</div>
+
+<div class="trk-feed-col">
+<ol class="trk-feed">
+<li class="trk-ev" style="--i: 1"><div class="trk-ev-in"><span class="trk-ic" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4z"></path></svg></span><p>Proposal sent to Anna Lind <span class="trk-meta">· Yesterday, 16:40</span></p></div></li>
+<li class="trk-ev" style="--i: 2"><div class="trk-ev-in"><span class="trk-ic" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"></path><circle cx="12" cy="12" r="3"></circle></svg></span><p>Anna opened your proposal <span class="trk-meta">· 09:12</span></p></div></li>
+<li class="trk-ev" style="--i: 3"><div class="trk-ev-in"><span class="trk-ic" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h11l5 5v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"></path><path d="M7 12h10M7 16h6"></path></svg></span><p>Anna is reading Scope of work</p></div></li>
+<li class="trk-ev" style="--i: 4"><div class="trk-ev-in"><span class="trk-ic" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l5 5-5 5M20 10H9a5 5 0 0 0-5 5v4"></path></svg></span><p>Forwarded to Erik Holm, Finance</p></div></li>
+<li class="trk-ev" style="--i: 5"><div class="trk-ev-in"><span class="trk-ic" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h11l5 5v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"></path><path d="M7 12h10M7 16h6"></path></svg></span><p>Anna is reading Pricing</p></div></li>
+<li class="trk-ev trk-ev-sign" style="--i: 6; --h: 128px"><div class="trk-ev-in"><span class="trk-ic trk-ic-accent" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16z"></path></svg></span><div><p>Anna signed the proposal</p><svg class="trk-sig" width="168" height="48" viewBox="0 0 168 48" aria-hidden="true"><path pathLength="1" d="M6 34c6-14 12-24 16-22s-6 26-2 26 10-20 14-20-2 16 2 16 8-12 12-12 0 10 4 10 8-8 12-8-2 8 2 8c8 0 14-14 22-14s-6 14 2 14c10 0 22-10 34-12 8-1 16 0 24 2"></path></svg></div></div></li>
+<li class="trk-ev" style="--i: 7"><div class="trk-ev-in"><span class="trk-ic trk-ic-accent" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span><p>Deposit received · <span class="trk-amount">€7,360</span></p></div></li>
+</ol>
+<div class="trk-nudge">
+<div class="trk-nudge-head"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"></path></svg>Suggestion</div>
+<p><strong>Good moment to call.</strong> Anna has read your pricing twice today.</p>
+<span class="btn btn-accent trk-call">Call Anna</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
 <section style="padding: 72px 0">
 <div class="wrap" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 32px">
 <div style="display: flex; gap: 14px"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3f6b4f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6z"></path><path d="m9 12 2 2 4-4"></path></svg><div><div style="font-size: 15px; font-weight: 600">GDPR-compliant</div><div style="font-size: 14px; line-height: 21px; color: #5c5f66">Data processing agreement included on every plan.</div></div></div>
@@ -926,6 +1058,91 @@ window.DCRuntime.mount(Component);
     });
   }, { threshold: 0.4 });
   vis.forEach(function (el) { io.observe(el); });
+})();
+// Live tracker: a 21s scripted loop. State is derived from elapsed time and written to
+// <html> (outside the re-rendered #app); timers and the deposit amount are re-written each tick.
+(function () {
+  var card = document.querySelector('.trk');
+  if (!card) return;
+  var root = document.documentElement;
+  var LOOP = 21000;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var feedItems = [].slice.call(card.querySelectorAll('.trk-ev'));
+  var elapsed = 0, last = 0, started = false, visible = false, hovered = false, announce = false, lastTrk = 0, lastNudge = 0;
+
+  var live = document.createElement('div');
+  live.className = 'sr';
+  live.setAttribute('aria-live', 'polite');
+  document.body.appendChild(live);
+
+  function ramp(t, from, to) { return Math.min(1, Math.max(0, (t - from) / (to - from))); }
+  function clock(s) { s = Math.floor(s); return Math.floor(s / 60) + ':' + ('0' + (s % 60)).slice(-2); }
+
+  function stateAt(t) {
+    var s = { trk: 1, pill: 'sent', sec: 0, fwd: 0, nudge: 0, signed: 0, fade: t < 300 || t >= 20500 ? 1 : 0, read: 0, amount: 0 };
+    if (t >= 1500) { s.trk = 2; s.pill = 'viewed'; s.sec = 1; s.read = ramp(t, 1500, 3500) * 24; }
+    if (t >= 3500) { s.trk = 3; s.sec = 2; s.read = ramp(t, 3500, 6500) * 108; }
+    if (t >= 6500) { s.trk = 4; s.fwd = 1; }
+    if (t >= 8500) { s.trk = 5; s.sec = 4; s.read = ramp(t, 8500, 14000) * 252; }
+    if (t >= 11000) { s.nudge = 1; }
+    if (t >= 14000) { s.trk = 6; s.pill = 'signed'; s.sec = 6; s.nudge = 0; s.signed = 1; }
+    if (t >= 15500) { s.trk = 7; s.amount = 1 - Math.pow(1 - ramp(t, 15500, 16700), 3); }
+    return s;
+  }
+  var FINAL = { trk: 7, pill: 'signed', sec: 6, fwd: 1, nudge: 0, signed: 1, fade: 0, read: 0, amount: 1 };
+
+  function setAttr(name, v) { v = String(v); if (root.getAttribute(name) !== v) root.setAttribute(name, v); }
+  function setProp(name, v) { v = String(v); if (root.style.getPropertyValue(name) !== v) root.style.setProperty(name, v); }
+  function setText(el, v) { if (el.textContent !== v) el.textContent = v; }
+
+  function render(s) {
+    setProp('--trk', s.trk);
+    setProp('--nudge', s.nudge);
+    setProp('--signed', s.signed);
+    setAttr('data-trk-pill', s.pill);
+    setAttr('data-trk-sec', s.sec);
+    setAttr('data-trk-fwd', s.fwd);
+    setAttr('data-trk-fade', s.fade);
+    card.querySelectorAll('.trk-time').forEach(function (el) { setText(el, clock(s.read)); });
+    var amt = card.querySelector('.trk-amount');
+    if (amt) setText(amt, '€' + Math.round(7360 * s.amount).toLocaleString('en-US'));
+    if (announce && (s.trk > lastTrk || s.nudge > lastNudge)) {
+      var text = s.nudge > lastNudge ? card.querySelector('.trk-nudge p').textContent : feedItems[s.trk - 1].textContent;
+      live.textContent = text.replace(/\s+/g, ' ').trim();
+    }
+    lastTrk = s.trk; lastNudge = s.nudge;
+  }
+
+  function playing() { return started && visible && !hovered && !reduce; }
+  function tick() {
+    var now = performance.now();
+    if (playing()) { elapsed = (elapsed + (now - last)) % LOOP; }
+    last = now;
+    render(reduce ? FINAL : stateAt(elapsed));
+  }
+
+  render(reduce ? FINAL : stateAt(0));
+  if (reduce) { root.setAttribute('data-trk-static', '1'); return; }
+  last = performance.now();
+  setInterval(tick, 100);
+
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.intersectionRatio >= 0.4) { visible = true; started = true; }
+        else if (!e.isIntersecting) visible = false;
+      });
+    }, { threshold: [0, 0.4] }).observe(card);
+  } else { visible = started = true; }
+
+  card.addEventListener('mouseenter', function () { hovered = true; });
+  card.addEventListener('mouseleave', function () { hovered = false; });
+  card.querySelector('.trk-replay').addEventListener('click', function () {
+    announce = true;
+    elapsed = 0; lastTrk = 0; lastNudge = 0;
+    started = true;
+    hovered = false;
+  });
 })();
 </script>
 </body>
