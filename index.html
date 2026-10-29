@@ -112,10 +112,10 @@ details summary::-webkit-details-marker{display:none}
 .btn-accent:hover{background:color-mix(in srgb,var(--accent) 86%,var(--ink));color:#ffffff}
 
 /* Hero */
-.hero{background:var(--paper);padding:160px 0 64px}
+.hero{background:var(--paper);padding:120px 0 48px}
 .hero-grid{display:grid;grid-template-columns:minmax(0,55fr) minmax(0,45fr);gap:64px;align-items:center}
-.hero-eyebrow{margin:0 0 24px;font-size:12px;font-weight:600;line-height:16px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-soft)}
-.hero-head{margin-bottom:56px}
+.hero-eyebrow{margin:0 0 20px;font-size:12px;font-weight:600;line-height:16px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-soft)}
+.hero-head{margin-bottom:32px}
 .hero-title{margin:0;font-size:min(80px,calc((100cqi - 64px) / 11.2));line-height:1;letter-spacing:-0.02em;color:var(--ink)}
 .hero-title span{display:block}
 .hero-sub{margin:0;max-width:540px;font-size:20px;line-height:1.5;color:var(--ink-soft)}
@@ -126,29 +126,29 @@ details summary::-webkit-details-marker{display:none}
 .hero-small{margin:24px 0 0;font-size:13px;line-height:20px;color:var(--ink-soft)}
 
 /* Hero visual: warm gradient panel with grain */
-.hero-visual{position:relative;margin:0;min-height:700px;border-radius:var(--radius-card);overflow:hidden;isolation:isolate;background:radial-gradient(120% 95% at 22% 18%,var(--accent-soft) 0%,#D9A88F 38%,#A98069 72%,#8A6654 100%)}
+.hero-visual{position:relative;margin:0;min-height:540px;border-radius:var(--radius-card);overflow:hidden;isolation:isolate;background:radial-gradient(120% 95% at 22% 18%,var(--accent-soft) 0%,#D9A88F 38%,#A98069 72%,#8A6654 100%)}
 .hero-visual::after{content:"";position:absolute;inset:0;z-index:-1;opacity:0.11;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 
 /* Proposal card */
-.pcard{position:absolute;top:40px;left:32px;width:calc(100% - 64px);max-width:440px;background:#ffffff;border-radius:16px;box-shadow:0 1px 2px rgba(20,19,17,0.06),0 30px 60px -20px rgba(70,40,25,0.35);overflow:hidden;text-align:left}
-.pcard-bar{display:flex;align-items:center;gap:12px;height:48px;padding:0 16px;border-bottom:1px solid var(--line)}
+.pcard{position:absolute;top:28px;left:32px;width:calc(100% - 64px);max-width:440px;background:#ffffff;border-radius:16px;box-shadow:0 1px 2px rgba(20,19,17,0.06),0 30px 60px -20px rgba(70,40,25,0.35);overflow:hidden;text-align:left}
+.pcard-bar{display:flex;align-items:center;gap:12px;height:44px;padding:0 16px;border-bottom:1px solid var(--line)}
 .pcard-path{min-width:0;font-size:12px;color:var(--ink-soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .pcard-path strong{color:var(--ink);font-weight:500}
 .pcard-badge{margin-left:auto;background:var(--accent-soft);color:var(--ink)}
-.pcard-body{padding:24px}
-.pcard-title{margin:6px 0 6px;font-family:var(--font-display);font-size:28px;line-height:1.1;letter-spacing:-0.01em}
-.pcard-note{margin:0 0 16px;font-size:13px;line-height:20px;color:var(--ink-soft)}
-.pcard-row{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-top:1px solid var(--line);font-size:13px;line-height:20px}
-.pcard-opt{color:var(--ink-soft)}
-.pcard-total{padding-top:12px;border-top-color:var(--ink);font-weight:600}
+.pcard-body{padding:20px 24px}
+.pcard-title{margin:4px 0 14px;font-family:var(--font-display);font-size:28px;line-height:1.1;letter-spacing:-0.01em}
+.pcard-note{display:none;margin:0 0 16px;font-size:13px;line-height:20px;color:var(--ink-soft)}
+.pcard-row{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-top:1px solid var(--line);font-size:13px;line-height:20px}
+.pcard-opt{display:none;color:var(--ink-soft)}
+.pcard-total{padding-top:10px;border-top-color:var(--ink);font-weight:600}
 .pcard-total .price{font-size:20px}
 .pcard-dep{padding-top:4px;border-top:0;font-size:12px;color:var(--ink-soft)}
 
 /* Notifications: revealed one by one, looping */
-.notes{position:absolute;right:20px;bottom:28px;width:268px;margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
-.note{display:flex;align-items:center;gap:12px;padding:12px 14px;background:rgba(255,255,255,0.92);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-radius:14px;box-shadow:0 18px 36px -14px rgba(70,40,25,0.4);font-size:13px;line-height:18px;color:var(--ink);opacity:0;animation:9s var(--ease) infinite}
+.notes{position:absolute;right:20px;bottom:20px;width:268px;margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px}
+.note{display:flex;align-items:center;gap:10px;padding:10px 12px;background:rgba(255,255,255,0.92);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-radius:14px;box-shadow:0 18px 36px -14px rgba(70,40,25,0.4);font-size:13px;line-height:18px;color:var(--ink);opacity:0;animation:9s var(--ease) infinite}
 .note strong{font-weight:600}
-.note-ic{width:30px;height:30px;flex-shrink:0;display:flex;align-items:center;justify-content:center;border-radius:var(--radius-pill);background:var(--paper-deep);color:var(--ink)}
+.note-ic{width:26px;height:26px;flex-shrink:0;display:flex;align-items:center;justify-content:center;border-radius:var(--radius-pill);background:var(--paper-deep);color:var(--ink)}
 .note-ic-done{background:var(--accent);color:#ffffff}
 .note-1{animation-name:ql-note-1}
 .note-2{animation-name:ql-note-2}
@@ -177,6 +177,9 @@ details summary::-webkit-details-marker{display:none}
 .hero-visual{min-height:0;padding:20px;display:flex;flex-direction:column;gap:16px}
 .pcard,.notes{position:static;width:auto;max-width:none}
 .pcard-body{padding:20px}
+.pcard-title{margin:6px 0 6px}
+.pcard-note{display:block}
+.pcard-opt{display:flex}
 .nav{padding:0 8px 0 16px;gap:12px}
 .nav-logo{gap:8px;font-size:17px}
 .nav-cta{min-height:40px;padding:0 14px;font-size:14px}
