@@ -54,3 +54,6 @@ h1,h2,h1.disp,h2.disp{font-family:var(--font-display);font-weight:400;letter-spa
 
 /* Prices and data */
 .price,.disp.price{font-family:var(--font-mono);font-weight:500;font-variant-numeric:tabular-nums}
+
+/* Balanced line breaks so headings and large quotes never end on a single orphaned word */
+h1,h2,h3,.auth-quote p{text-wrap:balance}

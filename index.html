@@ -451,7 +451,7 @@ details summary::-webkit-details-marker{display:none}
 .plan{padding:24px}
 .plan-featured{padding:23px}
 .faq{padding-bottom:96px}
-.faq-title{font-size:32px}
+.faq-title{font-size:clamp(28px,9cqi,32px)}
 .faq-a p{padding-right:0}
 .close{padding:96px 0}
 .close-title{font-size:36px}
@@ -517,8 +517,8 @@ details summary::-webkit-details-marker{display:none}
 @container page (max-width: 600px){
 .hero{padding:120px 0 48px}
 .hero-head{margin-bottom:var(--hero-gap)}
-.hero-title{font-size:48px}
-.hero-title span{display:inline}
+/* Below 600px: "Send the proposal." stays on one line down to 320px (line 1 is about 7.9em wide) */
+.hero-title{font-size:clamp(34px,calc((100cqi - 32px) / 8.2),48px)}
 .hero-sub{font-size:18px}
 .hero-actions{margin-top:32px}
 .hero-visual{height:auto;min-height:0;container-type:normal;padding:20px;display:flex;flex-direction:column;gap:16px}
