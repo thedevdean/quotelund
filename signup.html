@@ -6,78 +6,36 @@
 <title>Start your free trial — Quotelund (concept)</title>
 <meta name="description" content="Concept sign-up flow for Quotelund, designed by McJames Studio.">
 <meta name="robots" content="noindex, nofollow">
-<meta name="theme-color" content="#3f6b4f">
+<meta name="theme-color" content="#F4EFE6">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preload" href="fonts/newsreader-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/tokens.css">
-<style>
-body{margin:0;background:var(--paper)}
-a{color:#3f6b4f}a:hover{color:#325641}
-:focus-visible{outline:2px solid #3f6b4f;outline-offset:2px}
-.su{container-type:inline-size;font-family:var(--font-sans);color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased}
-.disp{font-family:var(--font-sans);font-weight:600;letter-spacing:-0.03em}
-.field{display:flex;flex-direction:column;gap:6px}
-.field label,.legend{font-size:14px;font-weight:500;line-height:20px;color:var(--ink)}
-.inp{height:44px;padding:0 12px;border:1px solid #8a877f;border-radius:8px;background:#ffffff;color:var(--ink);font:400 15px var(--font-sans);box-sizing:border-box;width:100%}
-.inp::placeholder{color:#5c5f66}
-.inp:focus{outline:2px solid #3f6b4f;outline-offset:1px;border-color:#3f6b4f}
-.help{font-size:13px;line-height:20px;color:#5c5f66}
-.err{font-size:13px;line-height:20px;color:#b3261e}
-.inp-err{border-color:#b3261e}
-.inp-err:focus{outline-color:#b3261e;border-color:#b3261e}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 20px;border-radius:8px;font:500 16px/1 var(--font-sans);text-decoration:none;box-sizing:border-box;border:1px solid transparent;cursor:pointer;transition:background-color .15s ease,transform .15s ease}
-.btn:active{transform:translateY(1px)}
-.btn-p{background:#3f6b4f;color:#ffffff;box-shadow:0 1px 2px rgba(22,24,29,0.06)}
-.btn-p:hover{background:#325641;color:#ffffff}
-.btn-s{background:#ffffff;color:var(--ink);border-color:#8a877f}
-.btn-s:hover{background:#efede7;color:var(--ink)}
-.pill{min-height:44px;padding:0 14px;border-radius:8px;font:500 14px var(--font-sans);cursor:pointer;transition:border-color .15s ease,background-color .15s ease,color .15s ease}
-.pill-on{border:2px solid #3f6b4f;background:#e3ece5;color:#325641;padding:0 13px}
-.pill-off{border:1px solid #8a877f;background:#ffffff;color:var(--ink)}
-.pill-off:hover{background:var(--paper)}
-.check{display:flex;gap:10px;align-items:flex-start;font-size:14px;line-height:21px;color:var(--ink);cursor:pointer}
-.check input{width:18px;height:18px;margin:1px 0 0;accent-color:#3f6b4f;flex-shrink:0}
-@keyframes su-rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
-.rise{animation:su-rise .6s cubic-bezier(.2,.7,.2,1) both}
-@media (prefers-reduced-motion: reduce){.rise{animation:none !important}.btn,.btn:active{transition:none !important;transform:none !important}}
-@container (max-width: 860px){
-.side{padding:40px 24px !important}
-.main{padding:24px 16px 48px !important}
-}
-</style>
-<style>
-html{scroll-behavior:smooth}
-section[id]{scroll-margin-top:76px}
-@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
-</style>
+<link rel="stylesheet" href="css/auth.css">
 </head>
 <body>
 <div id="app"></div>
 <noscript><p style="font-family:system-ui,sans-serif;padding:24px">This concept site needs JavaScript to run.</p></noscript>
 <script type="text/x-template" id="tpl">
-<div class="su" style="width: 100%; min-height: 100vh; display: flex; flex-wrap: wrap">
+<div class="auth">
 
-<main class="main" style="flex: 1 1 560px; min-width: 0; box-sizing: border-box; padding: 32px 64px 64px; display: flex; flex-direction: column">
-<div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap">
-<a href="index.html" aria-label="Back to the Quotelund home page" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink)">
-<svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#3f6b4f"></rect><path d="M10.5 7h8.2l4.8 4.8v12.2a1 1 0 0 1-1 1h-12a1 1 0 0 1-1-1v-16a1 1 0 0 1 1-1z" fill="#ffffff"></path><path d="M18.7 7v4.8h4.8" fill="none" stroke="#3f6b4f" stroke-width="1.4" stroke-linejoin="round"></path><path d="M12.6 18.4l2.6 2.6 4.9-5.4" fill="none" stroke="#3f6b4f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-<span class="disp" style="font-size: 19px">Quotelund</span>
+<main class="auth-main">
+<a class="auth-logo" href="index.html" aria-label="Back to the Quotelund home page">
+<svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="var(--ink)"></rect><path d="M10.5 7h8.2l4.8 4.8v12.2a1 1 0 0 1-1 1h-12a1 1 0 0 1-1-1v-16a1 1 0 0 1 1-1z" fill="var(--paper)"></path><path d="M18.7 7v4.8h4.8" fill="none" stroke="var(--ink)" stroke-width="1.4" stroke-linejoin="round"></path><path d="M12.6 18.4l2.6 2.6 4.9-5.4" fill="none" stroke="var(--accent)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<span>Quotelund</span>
 </a>
-<span style="font-size: 14px; color: #5c5f66">Already have an account? <a href="login.html">Log in</a></span>
-</div>
 
-<div style="flex-grow: 1; display: flex; align-items: center; justify-content: center; padding-top: 48px">
-<div style="width: 100%; max-width: 440px">
+<div class="auth-body">
+<div class="auth-form">
 
 <sc-if value="{{showForm}}" hint-placeholder-val="{{true}}">
-<div class="rise" style="display: flex; flex-direction: column; gap: 20px">
-<div style="display: flex; flex-direction: column; gap: 8px">
-<h1 class="disp" style="margin: 0; font-size: clamp(30px, 2cqi + 14px, 40px); line-height: 1.1">Start your free trial</h1>
-<p style="margin: 0; font-size: 16px; line-height: 25px; color: #5c5f66">14 days free. No card needed. Send your first proposal today.</p>
+<div class="auth-stack rise">
+<div>
+<h1 class="auth-title">Start your 14-day trial</h1>
+<p class="auth-lead">No card needed. Send your first proposal today.</p>
 </div>
-<div class="field"><label for="su-name">Full name</label><input id="su-name" class="{{nameClass}}" type="text" name="name" autocomplete="name" placeholder="Anna Lind" value="{{name}}" onChange="{{onName}}" aria-invalid="{{nameBad}}" aria-describedby="su-name-err"><sc-if value="{{nameBad}}" hint-placeholder-val="{{false}}"><span id="su-name-err" class="err">Enter your full name.</span></sc-if></div>
-<div class="field"><label for="su-email">Work email</label><input id="su-email" class="{{emailClass}}" type="email" name="email" autocomplete="email" placeholder="anna@nordlys.dk" value="{{email}}" onChange="{{onEmail}}" aria-invalid="{{emailBad}}" aria-describedby="su-email-help"><sc-if value="{{emailBad}}" hint-placeholder-val="{{false}}"><span id="su-email-help" class="err">Enter a work email, like anna@nordlys.dk.</span></sc-if><sc-if value="{{emailOk}}" hint-placeholder-val="{{true}}"><span id="su-email-help" class="help">We'll send a link to confirm it's you.</span></sc-if></div>
-<div class="field"><label for="su-agency">Agency name</label><input id="su-agency" class="{{agencyClass}}" type="text" name="agency" autocomplete="organization" placeholder="Nordlys Studio" value="{{agency}}" onChange="{{onAgency}}" aria-invalid="{{agencyBad}}" aria-describedby="su-agency-err"><sc-if value="{{agencyBad}}" hint-placeholder-val="{{false}}"><span id="su-agency-err" class="err">Enter your agency's name.</span></sc-if></div>
+<div class="field"><label for="su-name">Full name</label><input id="su-name" class="{{nameClass}}" type="text" name="name" autocomplete="name" placeholder="Anna Lind" value="{{name}}" onChange="{{onName}}" aria-invalid="{{nameBad}}" aria-describedby="su-name-err"><sc-if value="{{nameBad}}" hint-placeholder-val="{{false}}"><span id="su-name-err" class="err"><svg class="err-ic" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7.5v5.5M12 16.5v.01"></path></svg>Enter your full name.</span></sc-if></div>
+<div class="field"><label for="su-email">Work email</label><input id="su-email" class="{{emailClass}}" type="email" name="email" autocomplete="email" placeholder="anna@nordlys.dk" value="{{email}}" onChange="{{onEmail}}" aria-invalid="{{emailBad}}" aria-describedby="su-email-help"><sc-if value="{{emailBad}}" hint-placeholder-val="{{false}}"><span id="su-email-help" class="err"><svg class="err-ic" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7.5v5.5M12 16.5v.01"></path></svg>Enter a work email, like anna@nordlys.dk.</span></sc-if><sc-if value="{{emailOk}}" hint-placeholder-val="{{true}}"><span id="su-email-help" class="help">We'll send a link to confirm it's you.</span></sc-if></div>
+<div class="field"><label for="su-agency">Studio name</label><input id="su-agency" class="{{agencyClass}}" type="text" name="agency" autocomplete="organization" placeholder="Nordlys Studio" value="{{agency}}" onChange="{{onAgency}}" aria-invalid="{{agencyBad}}" aria-describedby="su-agency-err"><sc-if value="{{agencyBad}}" hint-placeholder-val="{{false}}"><span id="su-agency-err" class="err"><svg class="err-ic" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7.5v5.5M12 16.5v.01"></path></svg>Enter your studio's name.</span></sc-if></div>
 <div role="radiogroup" aria-labelledby="su-size" style="display: flex; flex-direction: column; gap: 8px">
 <span id="su-size" class="legend">Team size</span>
 <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px">
@@ -88,45 +46,35 @@ section[id]{scroll-margin-top:76px}
 </div>
 </div>
 <label class="check"><input type="checkbox" name="tips">Send me occasional tips on writing proposals that win</label>
-<button type="button" class="btn btn-p" onClick="{{submit}}" style="width: 100%">Create my account</button>
-<p style="margin: 0; font-size: 13px; line-height: 20px; color: #5c5f66; text-align: center">By creating an account you agree to our <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.</p>
+<button type="button" class="btn btn-p" onClick="{{submit}}">Create my account</button>
+<p class="auth-fine">By creating an account you agree to our <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.</p>
+<p class="auth-switch">Already have an account? <a href="login.html">Log in</a></p>
 </div>
 </sc-if>
 
 <sc-if value="{{done}}" hint-placeholder-val="{{false}}">
-<div class="rise" role="status" style="display: flex; flex-direction: column; align-items: flex-start; gap: 20px">
-<span style="width: 56px; height: 56px; border-radius: 999px; background: #e3ece5; display: flex; align-items: center; justify-content: center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#325641" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16v12H4z"></path><path d="m4 7 8 6 8-6"></path></svg></span>
-<h1 class="disp" style="margin: 0; font-size: clamp(30px, 2cqi + 14px, 40px); line-height: 1.1">Check your inbox</h1>
-<p style="margin: 0; font-size: 16px; line-height: 25px; color: #5c5f66">We've sent a confirmation link to your work email. Click it to open Quotelund and start your first proposal from a template.</p>
-<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<div class="auth-ok rise" role="status">
+<span class="auth-ok-ic"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16v12H4z"></path><path d="m4 7 8 6 8-6"></path></svg></span>
+<h1 class="auth-title">Check your inbox</h1>
+<p>We've sent a confirmation link to your work email. Click it to open Quotelund and start your first proposal from a template.</p>
+<div class="auth-ok-actions">
 <a class="btn btn-s" href="index.html">Back to the home page</a>
-<button type="button" class="btn" onClick="{{reset}}" style="background: transparent; color: #3f6b4f; padding: 0 8px">Use a different email</button>
+<button type="button" class="linkbtn" onClick="{{reset}}">Use a different email</button>
 </div>
 </div>
 </sc-if>
 
 </div>
 </div>
+
+<p class="auth-credit">Concept design by McJames Studio. Quotelund is a fictional product.</p>
 </main>
 
-<aside class="side" style="flex: 1 1 420px; min-width: 0; box-sizing: border-box; padding: 64px; background: #3f6b4f radial-gradient(ellipse 80% 50% at 50% 100%, rgba(149,195,163,0.45), rgba(149,195,163,0) 70%); color: #ffffff; display: flex; flex-direction: column; justify-content: center; gap: 40px">
-<div style="display: flex; flex-direction: column; gap: 20px; max-width: 460px">
-<h2 class="disp" style="margin: 0; font-size: clamp(26px, 1.6cqi + 12px, 34px); line-height: 1.15; color: #ffffff">Everything you need to win the next client, free for 14 days.</h2>
-<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 14px; font-size: 16px; line-height: 24px; color: #e8f0ea">
-<li style="display: flex; gap: 12px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path d="M20 6 9 17l-5-5"></path></svg>Unlimited proposals and templates</li>
-<li style="display: flex; gap: 12px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path d="M20 6 9 17l-5-5"></path></svg>Alerts the moment a client opens one</li>
-<li style="display: flex; gap: 12px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path d="M20 6 9 17l-5-5"></path></svg>E-signatures and deposits in one link</li>
-<li style="display: flex; gap: 12px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path d="M20 6 9 17l-5-5"></path></svg>Pick a plan only when your trial ends</li>
-</ul>
-</div>
-<figure style="margin: 0; max-width: 460px; background: #ffffff; color: var(--ink); border-radius: 14px; padding: 24px; box-shadow: 0 12px 32px rgba(22,24,29,0.18)">
-<blockquote style="margin: 0; font-size: 16px; line-height: 25px">We used to wait a week before chasing a proposal. Now we call the moment a client opens it.</blockquote>
-<figcaption style="display: flex; align-items: center; gap: 12px; margin-top: 16px">
-<span style="width: 40px; height: 40px; border-radius: 999px; background: #e3ece5; color: #325641; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600">ML</span>
-<span><span style="display: block; font-size: 14px; font-weight: 600">Mette Lund</span><span style="display: block; font-size: 13px; color: #5c5f66">Founder, Halden &amp; Co</span></span>
-</figcaption>
+<aside class="auth-side grainy" aria-label="What studios say">
+<figure class="auth-quote">
+<blockquote><p>“Clients sign and pay the deposit in the same link. We stopped chasing invoices in the first week.”</p></blockquote>
+<figcaption><span class="auth-name">Thabo Nkosi</span><span>Creative Director, Fieldwork, Cape Town</span></figcaption>
 </figure>
-<p style="margin: 0; font-size: 13px; line-height: 20px; color: #dbe7de">GDPR-compliant · Hosted in the EU · Concept design by McJames Studio</p>
 </aside>
 
 </div>
